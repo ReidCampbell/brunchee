@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  authorize @venue
   def index
     if params[:location].present?
       @venues = Venue.where("location ILIKE '%#{params[:address]}%'")

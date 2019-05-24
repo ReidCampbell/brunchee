@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  has_many :reviews, through: :bookings
+  has_many :bookings
+  mount_uploader :photo, PhotoUploader
 end
