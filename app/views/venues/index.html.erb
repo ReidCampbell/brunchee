@@ -1,0 +1,85 @@
+<div class="container align-item-left mx-2 my-4">
+
+  <div class="row">
+    <div class="card p-4"style="width:400px;">
+    <h2>Filters</h2>
+    <hr>
+      <div class="filter-search">
+        <h3>Neighborhood</h3>
+        <% @neighborhoods = ['Barking', 'Barnet', 'Battersea', 'Beckenham', 'Bethnal Green', 'Bromley', 'Camberwell', 'Camden', 'Chelsea', 'Chingford', 'Chingford', 'Clapham', 'Croydon', 'Dagenham', 'Deptford', 'Ealing', 'East Ham', 'Enfield' ] %>
+          <% @neighborhoods.each do |neighborhood| %>
+            <div class="checkbox">
+              <input type="checkbox" value="neighborhood"/>
+              <label><%= neighborhood %></label>
+            </div>
+          <% end %>
+          <hr>
+        <h3>Price range</h3>
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <div class="d-flex justify-content-between">
+              <div>0</div>
+              <div id="demo" class="text-right">
+            </div>
+
+            </div>
+          </div>
+
+        <hr>
+        <h3>Rating</h3>
+          <div class="checkbox">
+            <input type="checkbox" value="rating"/>
+            <label>5 stars</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" value="rating"/>
+            <label>4 stars</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" value="rating"/>
+            <label>3 stars</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" value="rating"/>
+            <label>2 stars</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" value="rating"/>
+            <label>1 star</label>
+          </div>
+        <hr>
+        <h3>Cuisine</h3>
+          <% @cuisines = ['All', 'British', 'Brazilian', 'Chinese', 'Italian', 'Mediterrean'] %>
+          <% @cuisines.each do |cuisine| %>
+            <div class="checkbox">
+              <input type="checkbox" value="cuisine"/>
+              <label><%= cuisine %></label>
+            </div>
+          <% end %>
+        <hr>
+        <h3>Style</h3>
+          <% @styles = ['Casual dining', 'Café', 'Pubs', 'Bars', 'Fine Dining'] %>
+          <% @styles.each do |style| %>
+            <div class="checkbox">
+              <input type="checkbox" value="style"/>
+              <label><%= style %></label>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <div class="card"></div>
+  </div>
+</div>
+
+
+<script>
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value; // Display the default slider value
+  // Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+    output.innerHTML = this.value;}
+</script>
+
+
+
