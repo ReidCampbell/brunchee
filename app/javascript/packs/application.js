@@ -10,3 +10,5 @@ index.search('something', { hitsPerPage: 10, page: 0 })
   .catch(function searchFailure(err) {
     console.error(err);
   });
+
+
