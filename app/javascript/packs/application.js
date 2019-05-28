@@ -1,4 +1,5 @@
 import "bootstrap";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 var client = algoliasearch(ApplicationID, Search-Only-API-Key);
 var index = client.initIndex('YourIndexName');
