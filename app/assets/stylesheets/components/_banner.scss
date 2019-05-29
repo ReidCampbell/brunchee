@@ -1,41 +1,83 @@
 
-.banner::after {
-  content: "";
-  display: block;
+// .banner::after {
+//   content: "";
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   background-color: #333;
+//   // background-image: linear-gradient(left, rgba(255,255,255,1));
+//   position: absolute;
+//   top: 58px;
+//   left: 0;
+//   opacity: .5;
+//   z-index: 0;
+// }
+
+// .banner {
+//   display: relative;
+// }
+
+// .banner > * {
+//   z-index: 10;
+//   position: relative;
+// }
+
+// .banner {
+//   height: 100vh;
+//   background-size: cover;
+//   background-position: center;
+//   background-image: linear-gradient(rgba(0, 0, 0, 0.7)) !important;
+//   // padding: 150px 0;
+// }
+
+// .text-white {
+//    text-shadow: 1px 1px 1px #000000;
+//    font-weight: bold;
+//    font-size: 40px;
+// }
+
+// .container {
+//   align-items: flex-start;
+// }
+.Banner {
+  margin-top: -#{$navbar-height};
   width: 100%;
-  height: 100%;
-  background-color: #333;
-  // background-image: linear-gradient(left, rgba(255,255,255,1));
-  position: absolute;
-  top: 58px;
-  left: 0;
-  opacity: .5;
-  z-index: 0;
-}
-
-.banner {
-  display: relative;
-}
-
-.banner > * {
-  z-index: 10;
-  position: relative;
-}
-
-.banner {
   height: 100vh;
-  background-size: cover;
+  color: $white;
+  background: linear-gradient(0deg, rgba(#63c9f2, 0.78) 0%, rgba(#ef891c, 0.78) 97%), asset-url('brunchee-banner.jpg');
   background-position: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7)) !important;
-  // padding: 150px 0;
-}
+  background-repeat: no-repeat;
+  background-size: cover;
 
-.text-white {
-   text-shadow: 1px 1px 1px #000000;
-   font-weight: bold;
-   font-size: 40px;
-}
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 
-.container {
-  align-items: flex-start;
+  &__content {
+    max-width: 835px;
+  }
+
+  &__heading {
+    font-size: 52px;
+    font-weight: bold;
+    max-width: 680px;
+    // text-align: center;
+  }
+
+  &__leading {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  &__form {
+    box-shadow: 0 15px 46px rgba(26, 26, 29, 0.3), 0 15px 90px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  &__input {
+    height: 70px;
+    font-size: 18px;
+  }
 }

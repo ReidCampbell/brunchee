@@ -19,6 +19,8 @@ gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
 gem "algoliasearch-rails"
 gem 'meta-tags'
+gem 'react-rails'
+gem 'bootstrap-sass', '~> 3.3'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
