@@ -23,4 +23,4 @@ module Brunchee
   end
 end
 
-config.exceptions_app = self.routes
+# config.exceptions_app = self.routes
