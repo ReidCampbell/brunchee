@@ -22,3 +22,5 @@ module Brunchee
     # the framework and any gems in your application.
   end
 end
+
+config.exceptions_app = self.routes
