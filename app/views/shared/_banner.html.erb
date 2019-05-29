@@ -3,7 +3,7 @@
     <div class="Banner__content">
       <h1 class="Banner__heading">Hakuna Mimosa. It means it’s brunch time.</h1>
       <p class="Banner__leading">Brunch without booze is just a sad, late breakfast.</p>
-      <%= form_tag('/boats', method: "get", class: "Banner__form") do %>
+      <%= form_tag('/venues', method: "get", class: "Banner__form") do %>
         <div class="input-group input-group-lg">
           <%= text_field_tag(:query, nil, placeholder: "Where do you want to brunch?", class: "Input Banner__input form-control") %>
           <div class="input-group-btn">

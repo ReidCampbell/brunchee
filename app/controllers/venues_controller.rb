@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   # authorize @venue
   def index
-    @venues = policy_scope(Venue)
+    # @venues = policy_scope(Venue)
     if params[:address].present?
       @venues = Venue.where("address ILIKE '%#{params[:address]}%'")
     else
