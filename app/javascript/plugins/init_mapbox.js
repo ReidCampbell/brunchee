@@ -24,15 +24,11 @@ const initMapbox = () => {
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
     });
-    if (mapElement) {
+
       // [ ... ]
       fitMapToMarkers(map, markers);
-    }
-    if (mapElement) {
-    // [...]
-       console.log(mapboxgl.accessToken)
-       map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
-    }
+      map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
+
   }
 };
 
