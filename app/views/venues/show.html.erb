@@ -4,7 +4,7 @@
   <i></i><h3><%= @venue.address %></h3>
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-7">
-      <img src="https://picsum.photos/id/1080/300/200" alt="" style="width:600px;">
+      <%= image_tag(@venue.photos, size: 300) %>
       <p class="my-4"><%= @venue.description %></p>
 
     </div>
