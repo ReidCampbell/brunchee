@@ -1,0 +1,16 @@
+ <div class="bookings-form">
+    <div class="bookings-form-title">
+      <h2 class="text-center my-4">Edit your booking</h2>
+    </div>
+  <div>
+
+    <%= simple_form_for @venue do |f| %>
+      <%= f.input :party_size %>
+      <%= f.input :date %>
+    <%= f.button :submit, "Edit booking", :class => "btn" %>
+    <% end %>
+      <div class="back-btn mx-2"></div>
+
+  </div>
+</div>
+

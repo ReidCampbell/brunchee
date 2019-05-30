@@ -51,3 +51,17 @@
 h3 {
 color:#303841;
 }
+
+
+.bookings-card {
+  width: 100%;
+  height: fit-content;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.bookings-card a {
+  color: #735372;
+}
