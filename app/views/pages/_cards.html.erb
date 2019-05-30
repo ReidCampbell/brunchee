@@ -1,0 +1,12 @@
+<section class="Home__cards">
+  <div class="container">
+    <h2 class="Home__cards-heading">Top Brunchee Venues</h2>
+    <div class="row">
+      <% @venues.each do |venue| %>
+        <div class="col-sm-6 col-md-4">
+          <%= render 'shared/card', venue: venue %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

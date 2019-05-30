@@ -6,7 +6,7 @@ class CreateVenues < ActiveRecord::Migration[5.2]
       t.string :post_code
       t.string :cuisine
       t.text :description
-      t.string :rating
+      t.integer :rating
       t.integer :price
       t.string :photos
       t.float :latitude

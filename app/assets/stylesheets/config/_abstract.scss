@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+$font-stack: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// To use a font file (.woff) uncomment following lines
+// @font-face {
+//   font-family: "Font Name";
+//   src: font-url('FontFile.eot');
+//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+//        font-url('FontFile.woff') format('woff'),
+//        font-url('FontFile.ttf') format('truetype')
+// }
+// $my-font: "Font Name";
+
+
+//== Colors
+//
+//## Custom colors used to override bootstrap defaults
+$primary: #69b9d3;
+$secondary: #ff61ab;
+$success: #46cf7b;
+$error: #ff5572;
+$dark: #2a2a30;
+$gray-text: #bbbccd;
+$gray-disabled: #dddde6;
+$gray-border: #e7e7f0;
+$gray-background: #f3f3f9;
+$white: #fff;
+
+$colors-map: (
+  primary: #5757ff,
+  secondary: #ff61ab,
+  success: #46cf7b,
+  error: #ff5572,
+  dark: #2a2a30,
+  grey-text: #bbbccd,
+  grey-disabled: #dddde6,
+  grey-border: #e7e7f0,
+  grey-background: #f3f3f9,
+  white: #fff,
+);
+
+$navbar-height: 60px;

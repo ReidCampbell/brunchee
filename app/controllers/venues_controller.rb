@@ -2,7 +2,8 @@ class VenuesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @venues = policy_scope(Venue)
+    # @venues = policy_scope(Venue)
+
     if params[:address].present?
       @venues = Venue.where("address ILIKE '%#{params[:address]}%'")
     else
@@ -15,6 +16,19 @@ class VenuesController < ApplicationController
         lat: venue.latitude,
         lng: venue.longitude
       }
+    end
+  end
+
+  def new
+    @venue = Venue.new
+  end
+
+  def create
+    @venue = Venue.new(venue_params)
+    if @venue.save
+      redirect_to venue_path(@venue)
+    else
+      render :new
     end
   end
 

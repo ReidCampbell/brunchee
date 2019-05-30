@@ -7,6 +7,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
+gem 'react-rails'
+
 gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -18,6 +20,8 @@ gem 'pundit'
 gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
 gem "algoliasearch-rails"
+gem 'meta-tags'
+gem 'bootstrap-sass', '~> 3.3'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
