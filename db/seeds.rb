@@ -15,7 +15,7 @@ venue1 = Venue.create!(
   price: "35",
   neighborhood: "Shoreditch",
   website: "www.cevichefamily.com/andina/andina-shoreditch",
-  photos: "https://source.unsplash.com/random"
+  photos: "https://media.timeout.com/images/101402283/1372/772/image.jpg"
 )
 
 venue2 = Venue.create!(
@@ -28,7 +28,7 @@ venue2 = Venue.create!(
   price: "55",
   neighborhood: "Kew",
   website: "www.antipodea.co.uk",
-  photos: "https://source.unsplash.com/random"
+  photos: "https://media.timeout.com/images/103706413/1372/772/image.jpg"
 )
 
 venue3 = Venue.create!(
@@ -41,7 +41,7 @@ venue3 = Venue.create!(
   price: "60",
   neighborhood: "Nunhead",
   website: "www.babettenunhead.com",
-  photos: "https://source.unsplash.com/random"
+  photos: "https://media.timeout.com/images/103834888/1372/772/image.jpg"
 )
 
 venue4 = Venue.create!(
@@ -54,7 +54,7 @@ venue4 = Venue.create!(
   price: "80",
   neighborhood: "Moorgate",
   website: "www.badegg.london",
-  photos: "https://source.unsplash.com/random"
+  photos: "https://media.timeout.com/images/101845823/1372/772/image.jpg"
 )
 
 venue5 = Venue.create!(
@@ -67,5 +67,5 @@ venue5 = Venue.create!(
   price: "25",
   neighborhood: "Balham",
   website: "www.brickwoodlondon.com",
-  photos: "https://source.unsplash.com/random"
+  photos: "https://media.timeout.com/images/105172041/1372/772/image.jpg"
 )

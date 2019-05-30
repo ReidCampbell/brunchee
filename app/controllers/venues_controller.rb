@@ -4,8 +4,8 @@ class VenuesController < ApplicationController
   def index
     # @venues = policy_scope(Venue)
 
-    if params[:address].present?
-      @venues = Venue.where("address ILIKE '%#{params[:address]}%'")
+    if params[:neighborhood].present?
+      @venues = Venue.where("neighborhood ILIKE '%#{params[:neighborhood]}%'")
     else
       @venues = Venue.all
     end
