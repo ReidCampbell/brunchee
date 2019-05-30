@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  skip_before_action :authenticate_user!
+  # skip_before_action :authenticate_user!
 
   def index
     # @venues = policy_scope(Venue)
@@ -39,7 +39,7 @@ class VenuesController < ApplicationController
     @time = params['time']
     @venue = Venue.find(params[:id])
     @bookings = @venue.bookings
-    authorize @venue
+    # authorize @venue
   end
 
   private

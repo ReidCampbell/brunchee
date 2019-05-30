@@ -94,26 +94,56 @@
           </div>
         </div>
       </div>
-
+<!--
       <div class="container">
         <div class="row">
-          <% @venues.each do |venue| %>
+          <%# @venues.each do |venue| %>
             <div class="col-xs-12 col-sm-6 col-md-3">
 
               <div class="homepage-card">
-              <%= link_to venue_path(venue) do %>
+              <%#= link_to venue_path(venue) do %>
                   <img src="https://picsum.photos/id/1080/300/200" alt="image">
                   <div class="card-info">
-                    <h3><%= venue.name %></h3>
-                    <p><%= venue.rating %></p>
+                    <h3><%#= venue.name %></h3>
+                    <p><%#= venue.rating %></p>
                   </div>
-              <% end %>
+              <%# end %>
 
                 </div>
             </div>
-          <% end %>
+          <%# end %>
+        </div>
+      </div> -->
+
+<section class="venues">
+  <div class="container-fluid">
+    <h3><%= @venues.count %> Venues</h3>
+    <div class="Cards">
+      <div class="Cards__grid">
+        <% @venues.each do |venue|  %>
+          <div class="grid-item">
+            <%= render 'shared/card', venue: venue %>
+          </div>
+        <% end %>
+      </div>
+      <div class="Map Cards__map">
+        <div class="Map__inner">
+          <div id="map"
+            style="width: 100%;"
+            data-markers="<%= @markers.to_json %>">
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<%#= javascript_pack_tag "map" %>
+
+
+
+
+
 
         <div class="col-xs-12 col-sm-6 col-md-3">
            <div
