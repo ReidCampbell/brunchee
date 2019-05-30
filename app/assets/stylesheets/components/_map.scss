@@ -25,12 +25,16 @@
 }
 
 
-#map {
-  height: 100vh;
-  position: sticky;
-  position: fixed;
-  top: 0;
-  width: 40%;
+.index_map {
+  height: 100vh !important;
+  position: sticky !important;
+  position: fixed !important;
+  top: 0 !important;
+  width: 40% !important;
+}
+
+.show_map {
+
 }
 
 .cards {
@@ -41,3 +45,5 @@
   margin: 5%;
   width: 100%;
 }
+
+
