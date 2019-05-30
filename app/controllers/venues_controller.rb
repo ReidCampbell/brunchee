@@ -17,6 +17,19 @@ class VenuesController < ApplicationController
     end
   end
 
+  def new
+    @venue = Venue.new
+  end
+
+  def create
+    @venue = Venue.new(venue_params)
+    if @venue.save
+      redirect_to venue_path(@venue)
+    else
+      render :new
+    end
+  end
+
   def show
     set_venue
     @booking = Booking.new

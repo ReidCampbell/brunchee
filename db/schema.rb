@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_05_23_135718) do
     t.string "post_code"
     t.string "cuisine"
     t.text "description"
-    t.string "rating"
+    t.integer "rating"
     t.integer "price"
     t.string "photos"
     t.float "latitude"
