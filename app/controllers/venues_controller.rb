@@ -1,7 +1,9 @@
 class VenuesController < ApplicationController
-  # authorize @venue
+  skip_before_action :authenticate_user!
+
   def index
     # @venues = policy_scope(Venue)
+
     if params[:address].present?
       @venues = Venue.where("address ILIKE '%#{params[:address]}%'")
     else
@@ -37,6 +39,7 @@ class VenuesController < ApplicationController
     @time = params['time']
     @venue = Venue.find(params[:id])
     @bookings = @venue.bookings
+    authorize @venue
   end
 
   private
