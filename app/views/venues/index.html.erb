@@ -2,7 +2,7 @@
   <div class="containery">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card p-4"style="width:250px;">
+        <div class="filter_card p-4"style="width:250px;">
           <h2 style="color:#303841;">Filters</h2>
           <hr>
             <div class="filter-search" style="color:#3A4750;">
@@ -16,7 +16,7 @@
                 <% end %>
 
 
-          <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#BE3144;font-size:20px;"><i class="fas fa-plus-square"></i></button>
+          <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></button>
               <div id="demo" class="collapse">
                <% @neighborhoods = ['Camberwell', 'Camden', 'Chelsea', 'Chingford', 'Chingford', 'Clapham', 'Croydon', 'Dagenham', 'Deptford', 'Ealing', 'East Ham', 'Enfield' ] %>
                 <% @neighborhoods.each do |neighborhood| %>
@@ -70,7 +70,7 @@
                     <label><%= cuisine %></label>
                   </div>
                 <% end %>
-              <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#BE3144;font-size:20px;"><i class="fas fa-plus-square"></i></button>
+              <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></button>
               <div id="demo" class="collapse">
                <% @cuisines = ['Carribean', 'Japanese', 'Lebanese', 'Korean', 'Turkish' ] %>
                   <% @cuisines.each do |cuisine| %>
