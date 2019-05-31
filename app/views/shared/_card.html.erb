@@ -32,11 +32,13 @@
             </div>
           </span>
         </div>
-        <%- unless current_user.favorite_venues.include?(venue) -%>
-          <%= link_to 'Add to favorites', venue_favorite_venues_path(venue), method: :post %>
-        <%- else -%>
-          <%= link_to 'Remove from favorites', favorite_venue_path(Favorite.where(user: current_user, venue: venue).first), method: :delete %>
-        <%- end -%>
+        <% if user_signed_in? %>
+          <%- unless current_user.favorite_venues.include?(venue)  -%>
+            <%= link_to 'Add to favorites', venue_favorite_venues_path(venue), method: :post %>
+          <%- else -%>
+            <%= link_to 'Remove from favorites', favorite_venue_path(Favorite.where(user: current_user, venue: venue).first), method: :delete %>
+          <%- end -%>
+        <% end %>
           <i class="fas fa-heart color-grey-text"></i>
       </div>
     </div>
