@@ -1,119 +1,94 @@
 <div class="index-container">
   <div class="containery">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="filter_card p-4"style="width:250px;">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="filter_card">
           <h2 style="color:#303841;">Filters</h2>
           <hr>
-            <div class="filter-search" style="color:#3A4750;">
-              <h4 class="py-2">Neighborhood</h4>
-              <% @neighborhoods = ['Barking', 'Barnet', 'Battersea', 'Beckenham', 'Bethnal Green', 'Bromley' ] %>
-                <% @neighborhoods.each do |neighborhood| %>
-                  <div class="checkbox">
-                    <input type="checkbox" value="neighborhood"/>
-                    <label><%= neighborhood %></label>
-                  </div>
-                <% end %>
-
-
-          <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></button>
-              <div id="demo" class="collapse">
-               <% @neighborhoods = ['Camberwell', 'Camden', 'Chelsea', 'Chingford', 'Chingford', 'Clapham', 'Croydon', 'Dagenham', 'Deptford', 'Ealing', 'East Ham', 'Enfield' ] %>
-                <% @neighborhoods.each do |neighborhood| %>
-                  <div class="checkbox">
-                    <input type="checkbox" value="neighborhood"/>
-                    <label><%= neighborhood %></label>
-                  </div>
-                <% end %>
+          <div class="filter-search" style="color:#3A4750;">
+            <h4 class="py-2">Neighborhood</h4>
+            <!--  <% @neighborhoods = ['Barking', 'Barnet', 'Battersea', 'Beckenham', 'Bethnal Green', 'Bromley' ] %> -->
+            <% @venues.each do |venue| %>
+              <div class="checkbox">
+                <input type="checkbox" value="neighborhood"/>
+                <label><%= venue.neighborhood %></label>
               </div>
-
-
-                <hr>
-              <h4 class="py-2">Price range (£)</h4>
-                <div class="slidecontainer">
-                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                  <div class="d-flex justify-content-between">
-                    <div>0</div>
-                    <div id="price" class="text-right">
-                    </div>
-                  </div>
-                </div>
-
-              <hr>
-              <h4 class="py-2">Rating</h4>
+            <% end %>
+            <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></button>
+            <div id="demo" class="collapse">
+             <% @neighborhoods = ['Camberwell', 'Camden', 'Chelsea', 'Chingford', 'Chingford', 'Clapham', 'Croydon', 'Dagenham', 'Deptford', 'Ealing', 'East Ham', 'Enfield' ] %>
+              <% @neighborhoods.each do |neighborhood| %>
                 <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>5 stars</label>
+                  <input type="checkbox" value="neighborhood"/>
+                  <label><%= neighborhood %></label>
                 </div>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>4 stars</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>3 stars</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>2 stars</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>1 star</label>
-                </div>
-              <hr>
-              <h4 class="py-2">Cuisine</h4>
-                <% @cuisines = ['All', 'British', 'Brazilian', 'Chinese', 'Italian', 'Mediterrean'] %>
-                <% @cuisines.each do |cuisine| %>
-                  <div class="checkbox">
-                    <input type="checkbox" value="cuisine"/>
-                    <label><%= cuisine %></label>
-                  </div>
-                <% end %>
-              <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></button>
-              <div id="demo" class="collapse">
-               <% @cuisines = ['Carribean', 'Japanese', 'Lebanese', 'Korean', 'Turkish' ] %>
-                  <% @cuisines.each do |cuisine| %>
-                    <div class="checkbox">
-                      <input type="checkbox" value="cuisine"/>
-                      <label><%= cuisine %></label>
-                    </div>
-                  <% end %>
-              </div>
-
-              <hr>
-              <h4 class="py-2">Style</h4>
-                <% @styles = ['Casual dining', 'Café', 'Pubs', 'Bars', 'Fine Dining'] %>
-                <% @styles.each do |style| %>
-                  <div class="checkbox">
-                    <input type="checkbox" value="style"/>
-                    <label><%= style %></label>
-                  </div>
-                <% end %>
+              <% end %>
             </div>
+            <hr>
+            <h4>Price range (£)</h4>
+            <div class="range">
+              <input type="range" min="1" max="4" steps="1" value="1">
+            </div>
+            <ul class="range-labels">
+              <li class="active selected">£</li>
+              <li>££</li>
+              <li>£££</li>
+              <li>££££</li>
+            </ul>
+            <br>
+            <hr>
+
+            <h4 class="py-2">Rating</h4>
+              <div class="checkbox">
+                <input type="checkbox" value="rating"/>
+                <label>5 stars</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" value="rating"/>
+                <label>4 stars</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" value="rating"/>
+                <label>3 stars</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" value="rating"/>
+                <label>2 stars</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" value="rating"/>
+                <label>1 star</label>
+            </div>
+            <hr>
+            <h4 class="py-2">Cuisine</h4>
+            <% @cuisines = ['All', 'British', 'Brazilian', 'Chinese', 'Italian', 'Mediterrean'] %>
+            <% @venues.each do |venue| %>
+              <div class="checkbox">
+                <input type="checkbox" value="cuisine"/>
+                <label><%= venue.cuisine %></label>
+              </div>
+            <% end %>
+            <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></button>
+            <div id="demo" class="collapse">
+             <% @cuisines = ['Carribean', 'Japanese', 'Lebanese', 'Korean', 'Turkish' ] %>
+              <% @cuisines.each do |cuisine| %>
+                <div class="checkbox">
+                  <input type="checkbox" value="cuisine"/>
+                  <label><%= cuisine %></label>
+                </div>
+              <% end %>
+            </div>
+            <hr>
+            <h4 class="py-2">Style</h4>
+            <% @styles = ['Casual dining', 'Café', 'Pubs', 'Bars', 'Fine Dining'] %>
+            <% @styles.each do |style| %>
+              <div class="checkbox">
+                <input type="checkbox" value="style"/>
+                <label><%= style %></label>
+              </div>
+            <% end %>
           </div>
         </div>
-
-
-
-        <div class="col-xs-12 col-sm-6 col-md-3">
-           <div
-            class="index_map"
-            id="map"
-            style="width: 50%;
-            height: calc(100vh - 28vh);margin-top:80px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-        </div>
-
-
-
-
-
-
-
-
       </div>
 <!--
       <div class="container">
@@ -135,45 +110,34 @@
           <%# end %>
         </div>
       </div> -->
-
-<section class="venues">
-  <div class="container-fluid">
-    <h3><%= @venues.count %> Venues</h3>
-    <div class="Cards">
-      <div class="Cards__grid">
-        <% @venues.each do |venue|  %>
-          <div class="grid-item">
-            <%= render 'shared/card', venue: venue %>
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <section class="venues">
+          <div class="container-fluid">
+            <h3><%= @venues.count %> Venues</h3>
+            <div class="Cards">
+              <div class="Cards__grid">
+                <% @venues.each do |venue|  %>
+                  <div class="grid-item">
+                    <%= render 'shared/card', venue: venue %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
-        <% end %>
+        </section>
       </div>
-      <div class="Map Cards__map">
-        <div class="Map__inner">
-          <div id="map"
-            style="width: 100%;"
-            data-markers="<%= @markers.to_json %>">
-          </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div
+          class="index_map"
+          id="map"
+          style="width: 100%; height:100vh;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>
   </div>
-</section>
-
-<%#= javascript_pack_tag "map" %>
-
-
-
-
-
-
-
-
-    </div>
-  </div>
 </div>
-
-
-
 <script>
   var slider = document.getElementById("myRange");
   var output = document.getElementById("price");
@@ -184,10 +148,3 @@
     output.innerHTML = this.value;
   }
 </script>
-
-
-
-
-
-
-
