@@ -14,7 +14,7 @@
                 <label><%= venue.neighborhood %></label>
               </div>
             <% end %>
-            <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></button>
+            <a class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></a>
             <div id="demo" class="collapse">
              <% @neighborhoods = ['Camberwell', 'Camden', 'Chelsea', 'Chingford', 'Chingford', 'Clapham', 'Croydon', 'Dagenham', 'Deptford', 'Ealing', 'East Ham', 'Enfield' ] %>
               <% @neighborhoods.each do |neighborhood| %>
@@ -68,7 +68,7 @@
                 <label><%= venue.cuisine %></label>
               </div>
             <% end %>
-            <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></button>
+            <a class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></a>
             <div id="demo" class="collapse">
              <% @cuisines = ['Carribean', 'Japanese', 'Lebanese', 'Korean', 'Turkish' ] %>
               <% @cuisines.each do |cuisine| %>
