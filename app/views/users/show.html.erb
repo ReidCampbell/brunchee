@@ -1,0 +1,142 @@
+<div class="container">
+  <div class="containery"style="margin-top:150px;">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <button class="tablinks" onclick="openCity(event, 'Edit')">Edit Profile</button>
+          </li>
+          <li class="list-group-item">
+            <button class="tablinks" onclick="openCity(event, 'Upcoming')">Upcoming Brunches</button>
+          </li>
+          <li class="list-group-item">
+            <button class="tablinks" onclick="openCity(event, 'Saved')">Saved Brunches</button>
+          </li>
+          <li class="list-group-item">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              Log out
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.list-group-item button {
+  background: none;
+  color: #69b9d3;
+  border: none;
+  margin:0;
+  padding:0;
+  cursor:pointer;
+  font-family:Arial;
+  font-size:16px;
+  text-decoration:none;
+  outline:none;
+}
+
+.list-group-item button:hover {
+  background: none;
+  color: #42a7c7;
+  border: none;
+  margin:0;
+  padding:0;
+  cursor:pointer;
+  font-family:Arial;
+  font-size:16px;
+  text-decoration:underline;
+  outline:none;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+</head>
+<body>
+
+<div id="Edit" class="tabcontent">
+  <div class="col-md-9">
+        <%# FORM FOR UPDATING PROFILE  %>
+        <%= simple_form_for(current_user) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :first_name  %>
+          <%= f.input :last_name %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.submit 'Save', class: "btn btn btn-primary" %>
+        <% end %>
+      </div>
+</div>
+
+<div id="Upcoming" class="tabcontent">
+  <section class="venues">
+    <div class="container-fluid">
+      <div class="Cards">
+        <div class="Cards__grid">
+          <% current_user.bookings.each do |booking| %>
+            <div class="grid-item">
+              <%= render 'shared/card', venue: booking.venue %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="Saved" class="tabcontent">
+  <section class="venues">
+    <div class="container-fluid">
+      <div class="Cards">
+        <div class="Cards__grid">
+          <% current_user.favorites.each do |favorite| %>
+            <div class="grid-item">
+              <%= render 'shared/card', venue: favorite.venue %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
