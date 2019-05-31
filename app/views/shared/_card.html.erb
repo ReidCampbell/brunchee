@@ -14,7 +14,8 @@
       <h3 class="Card__title"><%= venue.name %></h3>
       <div class="Card__neighborhood">
         <i class="fas fa-map-marker-alt" style="color: #ccc"></i>
-        <%= venue.neighborhood %></div>
+        <%= venue.neighborhood %>
+    </div>
       <div class="Card__price"><%= venue.cuisine %></div>
       <div class="Card__meta">
         <div class="Card__rating">
@@ -31,6 +32,11 @@
             </div>
           </span>
         </div>
+        <%- unless current_user.favorite_venues.include?(venue) -%>
+          <%= link_to 'Add to favorites', venue_favorite_venues_path(venue), method: :post %>
+        <%- else -%>
+          <%= link_to 'Remove from favorites', favorite_venue_path(Favorite.where(user: current_user, venue: venue).first), method: :delete %>
+        <%- end -%>
           <i class="fas fa-heart color-grey-text"></i>
       </div>
     </div>

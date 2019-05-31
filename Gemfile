@@ -22,6 +22,7 @@ gem 'geocoder'
 gem "algoliasearch-rails"
 gem 'meta-tags'
 gem 'bootstrap-sass', '~> 3.3'
+gem 'cloudinary', '~> 1.9.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
