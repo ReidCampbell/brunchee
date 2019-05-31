@@ -1,9 +1,7 @@
 .filter_card {
   background-color: white;
-  padding: 10px;
-  margin-top: 20px;
-  margin: 60px;
-  width:100%;
+  padding: 25px;
+  width:90%;
 }
 
 .bookings_card {
@@ -63,8 +61,9 @@
   }
 
   &__body {
-    padding: 24px 16px;
+    padding: 10px 16px;
     background-color: $white;
+    height: 180px;
   }
 
   &__title {
@@ -72,21 +71,26 @@
     font-size: 21px;
     line-height: 1.5;
     font-weight: bold;
+    height: 65px;
+
   }
 
   &__price {
     font-size: 14px;
     line-height: 1.5;
     color: $success;
+    height: 40px;
   }
 
   &__rating-text {
+
     margin-left: 8px;
     font-size: 12px;
     color: $gray-text;
   }
 
   &__meta {
+
     margin-top: 8px;
     display: flex;
     align-items: center;
