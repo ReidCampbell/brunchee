@@ -100,6 +100,11 @@ body {font-family: Arial;}
         <div class="Cards__grid">
           <% current_user.bookings.each do |booking| %>
             <div class="grid-item">
+              <p> &nbsp; Party size: <br>  &nbsp; <%= booking.party_size %></p>
+
+
+              <p> &nbsp; Date: <br>  &nbsp; <%= booking.date %></p>
+
               <%= render 'shared/card', venue: booking.venue %>
             </div>
           <% end %>
