@@ -1,0 +1,17 @@
+<div class="bookings_card">
+  <h2 class="text-center my-2"style="color:#303841;font-size:24px;">Edit reservation</h2>
+<hr>
+  <div class="form-wrapper" style="margin: 0 auto;">
+
+    <%= simple_form_for ([@venue, @booking]) do |f| %>
+      <%= f.input :party_size, collection: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'] %>
+      <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Confirm", class: "btn btn-primary", style: "margin-bottom: 20px;" %>
+    <% end %>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--  Flatpickr  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
