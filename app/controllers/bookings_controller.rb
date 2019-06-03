@@ -4,8 +4,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.venue = @venue
     @booking.user = current_user
+    @booking.value = @booking.party_size * @venue.price
+    @booking.state = 'pending'
     if @booking.save
-      redirect_to @booking.user, notice: 'Your booking is complete!'
+      redirect_to new_payment_path(booking_id: @booking.id)
     else
       redirect_to venue_path(@venue)
     end
@@ -30,7 +32,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :price, :user_id, :venue_id, :review)
+    params.require(:booking).permit(:date, :price, :user_id, :venue_id, :review, :party_size)
   end
 
   def set_booking

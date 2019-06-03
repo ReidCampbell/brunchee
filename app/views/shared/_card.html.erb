@@ -24,7 +24,7 @@
             <div class="d-flex">
               <% (1..5).to_a.each do |el| %>
                 <% if  venue.rating.present? %>
-                  <% if el <= venue.rating %>
+                  <% if el <= venue.rating.to_i %>
                     <i class="fas fa-wine-glass" style="color: #ffb400;"></i>
                   <% else %>
                     <i class="fas fa-wine-glass" style="color: #ccc"></i>

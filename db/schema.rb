@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_131820) do
+ActiveRecord::Schema.define(version: 2019_06_03_160418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 2019_05_31_131820) do
     t.integer "party_size"
     t.bigint "venue_id"
     t.bigint "user_id"
+    t.integer "value_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.string "state"
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["venue_id"], name: "index_bookings_on_venue_id"
   end
@@ -34,6 +37,17 @@ ActiveRecord::Schema.define(version: 2019_05_31_131820) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_favorites_on_user_id"
     t.index ["venue_id"], name: "index_favorites_on_venue_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "venue_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -68,8 +82,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_131820) do
     t.string "post_code"
     t.string "cuisine"
     t.text "description"
-    t.integer "rating"
-    t.integer "price"
+    t.string "rating"
     t.string "photos"
     t.float "latitude"
     t.float "longitude"
@@ -82,10 +95,12 @@ ActiveRecord::Schema.define(version: 2019_05_31_131820) do
     t.string "expense"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
   end
 
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "venues"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "venues"
+  add_foreign_key "orders", "users"
 end

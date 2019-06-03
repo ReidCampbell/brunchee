@@ -119,6 +119,8 @@
                 <% @venues.each do |venue|  %>
                   <div class="grid-item">
                     <%= render 'shared/card', venue: venue %>
+                     <!-- Displaying price -->
+                <p>Amount: <% humanized_money_with_symbol(venue.price) %></p>
                   </div>
                 <% end %>
               </div>

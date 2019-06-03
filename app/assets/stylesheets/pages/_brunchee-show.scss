@@ -1,0 +1,21 @@
+.brunchee-container {
+  display: flex;
+  justify-content: space-around;
+}
+.brunchee-box {
+  height: 50vh;
+  width: 30vw;
+  background-color: white;
+
+}
+.top-half {
+  display: flex;
+  justify-content: space-between;
+  height: 50%;
+}
+.image-user {
+  height: 100%
+}
+.top-image {
+  height: 100%;
+}

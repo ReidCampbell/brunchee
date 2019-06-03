@@ -9,6 +9,7 @@
             <div class="d-flex">
               <i class="fas fa-map-marker-alt" style="color: #ccc"></i>
               <h3><%= @venue.address %></h3>
+              <p>Amount: <%= humanized_money_with_symbol(@venue.price) %></p>
             </div>
             <%= image_tag(@venue.photos, size: 300) %>
               <div>
