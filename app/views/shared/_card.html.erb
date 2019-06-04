@@ -36,12 +36,15 @@
         </div>
         <% if user_signed_in? %>
           <%- unless current_user.favorite_venues.include?(venue)  -%>
-            <%= link_to 'Add to favorites', venue_favorite_venues_path(venue), method: :post %>
+            <%= link_to(venue_favorite_venues_path(venue), method: :post) do %>
+              <i class="fas fa-heart color-grey-text"></i>
+            <% end %>
           <%- else -%>
-            <%= link_to 'Remove from favorites', favorite_venue_path(Favorite.where(user: current_user, venue: venue).first), method: :delete %>
+            <%= link_to(favorite_venue_path(Favorite.where(user: current_user, venue: venue).first), method: :delete) do %>
+            <i class="fas fa-heart color-blue-text"></i>
+            <% end %>
           <%- end -%>
         <% end %>
-          <i class="fas fa-heart color-grey-text"></i>
       </div>
     </div>
   </div>
