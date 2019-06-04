@@ -11,7 +11,7 @@ class FavoriteVenuesController < ApplicationController
 
   def destroy
     Favorite.find(params[:id]).destroy
-    redirect_back fallback_location: root_path, notice: "#{@venue.name} is no longer in favorites"
+    redirect_back fallback_location: root_path, notice: "#{@favorite} is no longer in favorites"
   end
 
   private
