@@ -25,9 +25,9 @@ gem 'meta-tags'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'cloudinary', '~> 1.9.1'
 gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'stripe'
-
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'date_format'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

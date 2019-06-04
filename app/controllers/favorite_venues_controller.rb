@@ -3,7 +3,7 @@ class FavoriteVenuesController < ApplicationController
 
   def create
     if Favorite.create(venue: @venue, user: current_user)
-      redirect_back fallback_location: root_path, notice: 'Brunchee has been favorited'
+      redirect_back fallback_location: root_path, notice: "#{@venue.name} has been added to your favorites"
     else
       redirect_to @venue, alert: 'Something went wrong...*sad panda*'
     end
@@ -11,7 +11,7 @@ class FavoriteVenuesController < ApplicationController
 
   def destroy
     Favorite.find(params[:id]).destroy
-    redirect_back fallback_location: root_path, notice: 'Brunchee is no longer in favorites'
+    redirect_back fallback_location: root_path, notice: "#{@favorite} is no longer in favorites"
   end
 
   private
