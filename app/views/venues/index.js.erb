@@ -1,0 +1,18 @@
+function changeVenues() {
+  var container = document.getElementById("venue-cards-container");
+  container.innerHTML = `
+  <h3><%=@venues.count%> Venues</h3>
+  <div class="index_card">
+    <div class="Cards__grid">
+      <% @venues.each do |venue|  %>
+        <div class="grid-item">
+          <%= render 'shared/card', venue: venue %>
+          <!-- Displaying price -->
+          <p>Amount: <% humanized_money_with_symbol(venue.price) %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  `;
+}
+changeVenues();

@@ -6,86 +6,86 @@
           <h2 style="color:#303841;">Filters</h2>
           <hr>
           <div class="filter-search" style="color:#3A4750;">
-            <h4 class="py-2">Neighborhood</h4>
-            <!--  <% @neighborhoods = ['Barking', 'Barnet', 'Battersea', 'Beckenham', 'Bethnal Green', 'Bromley' ] %> -->
-            <% @venues.each do |venue| %>
-              <div class="checkbox">
-                <input type="checkbox" value="neighborhood"/>
-                <label><%= venue.neighborhood %></label>
-              </div>
-            <% end %>
-            <a class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></a>
-            <div id="demo" class="collapse">
-             <% @neighborhoods = ['Camberwell', 'Camden', 'Chelsea', 'Chingford', 'Chingford', 'Clapham', 'Croydon', 'Dagenham', 'Deptford', 'Ealing', 'East Ham', 'Enfield' ] %>
-              <% @neighborhoods.each do |neighborhood| %>
+            <%= form_tag('/venues', id: "form-filter", method: :get, remote: true) do %>
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <h4 class="py-2">Neighborhood</h4>
+              <% Venue.all.sort_by { |venue| venue.neighborhood }.uniq {|venue| venue.neighborhood }.first(3).each do |venue| %>
                 <div class="checkbox">
-                  <input type="checkbox" value="neighborhood"/>
-                  <label><%= neighborhood %></label>
+                  <input type="checkbox" name="neighborhoods[<%= venue.id %>]" value="<%= venue.neighborhood %>"/>
+                  <label><%= venue.neighborhood %></label>
                 </div>
               <% end %>
-            </div>
-            <hr>
-            <h4>Price range (£)</h4>
-            <div class="range">
-              <input type="range" min="1" max="4" steps="1" value="1">
-            </div>
-            <ul class="range-labels">
-              <li class="active selected">£</li>
-              <li>££</li>
-              <li>£££</li>
-              <li>££££</li>
-            </ul>
-            <br>
-            <hr>
+              <a class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></a>
+              <div id="demo" class="collapse">
+                <% Venue.all.sort_by { |venue| venue.neighborhood }.uniq {|venue| venue.neighborhood }.drop(3).each do  |venue| %>
+                  <div class="checkbox">
+                    <input type="checkbox" name="neighborhoods[<%= venue.id %>]" value="<%= venue.neighborhood %>"/>
+                    <label><%= venue.neighborhood %></label>
+                  </div>
+                <% end %>
+              </div>
+              <hr>
+              <h4>Price range (£)</h4>
+              <div class="range">
+                <input type="range" min="1" max="4" steps="1" value="1">
+              </div>
+              <ul class="range-labels">
+                <li class="active selected">£</li>
+                <li>££</li>
+                <li>£££</li>
+                <li>££££</li>
+              </ul>
+              <br>
+              <hr>
 
-            <h4 class="py-2">Rating</h4>
-              <div class="checkbox">
-                <input type="checkbox" value="rating"/>
-                <label>5 stars</label>
+              <h4 class="py-2">Rating</h4>
+                <div class="checkbox">
+                  <input type="checkbox" value="rating"/>
+                  <label>5 stars</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" value="rating"/>
+                  <label>4 stars</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" value="rating"/>
+                  <label>3 stars</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" value="rating"/>
+                  <label>2 stars</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" value="rating"/>
+                  <label>1 star</label>
               </div>
-              <div class="checkbox">
-                <input type="checkbox" value="rating"/>
-                <label>4 stars</label>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" value="rating"/>
-                <label>3 stars</label>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" value="rating"/>
-                <label>2 stars</label>
-              </div>
-              <div class="checkbox">
-                <input type="checkbox" value="rating"/>
-                <label>1 star</label>
-            </div>
-            <hr>
-            <h4 class="py-2">Cuisine</h4>
-            <% @cuisines = ['All', 'British', 'Brazilian', 'Chinese', 'Italian', 'Mediterrean'] %>
-            <% @venues.each do |venue| %>
-              <div class="checkbox">
-                <input type="checkbox" value="cuisine"/>
-                <label><%= venue.cuisine %></label>
-              </div>
-            <% end %>
-            <a class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></a>
-            <div id="demo" class="collapse">
-             <% @cuisines = ['Carribean', 'Japanese', 'Lebanese', 'Korean', 'Turkish' ] %>
-              <% @cuisines.each do |cuisine| %>
+              <hr>
+              <h4 class="py-2">Cuisine</h4>
+              <% Venue.all.sort_by { |venue| venue.cuisine }.uniq {|venue| venue.cuisine }.first(3).each do |venue| %>
                 <div class="checkbox">
                   <input type="checkbox" value="cuisine"/>
-                  <label><%= cuisine %></label>
+                  <label><%= venue.cuisine %></label>
                 </div>
               <% end %>
-            </div>
-            <hr>
-            <h4 class="py-2">Style</h4>
-            <% @styles = ['Casual dining', 'Café', 'Pubs', 'Bars', 'Fine Dining'] %>
-            <% @styles.each do |style| %>
-              <div class="checkbox">
-                <input type="checkbox" value="style"/>
-                <label><%= style %></label>
+              <a class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></a>
+              <div id="demo" class="collapse">
+                <% Venue.all.sort_by { |venue| venue.cuisine }.uniq {|venue| venue.cuisine }.drop(3).each do  |venue| %>
+                  <div class="checkbox">
+                    <input type="checkbox" value="cuisine"/>
+                    <label><%= venue.cuisine %></label>
+                  </div>
+                <% end %>
               </div>
+              <hr>
+              <h4 class="py-2">Style</h4>
+              <% @styles = ['Casual dining', 'Café', 'Pubs', 'Bars', 'Fine Dining'] %>
+              <% @styles.each do |style| %>
+                <div class="checkbox">
+                  <input type="checkbox" value="style"/>
+                  <label><%= style %></label>
+                </div>
+              <% end %>
+              <%= submit_tag %>
             <% end %>
           </div>
         </div>
@@ -112,7 +112,7 @@
       </div> -->
       <div class="col-xs-12 col-sm-6 col-md-5">
         <section class="venues">
-          <div class="container-fluid">
+          <div id="venue-cards-container" class="container-fluid">
             <h3><%= @venues.count %> Venues</h3>
             <div class="index_card">
               <div class="Cards__grid">
@@ -140,7 +140,7 @@
     </div>
   </div>
 </div>
-<script>
+<!-- <script>
   var slider = document.getElementById("myRange");
   var output = document.getElementById("price");
   output.innerHTML = slider.value; // Display the default slider value
@@ -149,4 +149,26 @@
   slider.oninput = function() {
     output.innerHTML = this.value;
   }
-</script>
+</script> -->
+
+
+
+
+
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+ -->
+
+
+<!--
+<script>
+  const neighborhoods = document.querySelectorAll('input[name="venue-neighborhood"]');
+  const form = document.getElementById('form-filter');
+  neighborhoods.forEach((neighborhood) => {
+    neighborhood.addEventListener("click", (event) => {
+      form.submit();
+    });
+  });
+</script> -->
