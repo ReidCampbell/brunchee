@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_160418) do
+ActiveRecord::Schema.define(version: 2019_06_04_112001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2019_06_03_160418) do
   create_table "bookings", force: :cascade do |t|
     t.datetime "date"
     t.float "value"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "GBP", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "party_size"
@@ -39,24 +41,17 @@ ActiveRecord::Schema.define(version: 2019_06_03_160418) do
     t.index ["venue_id"], name: "index_favorites_on_venue_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "state"
-    t.string "venue_sku"
-    t.integer "amount_cents", default: 0, null: false
-    t.jsonb "payment"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "rating"
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "booking_id"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,7 +77,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_160418) do
     t.string "post_code"
     t.string "cuisine"
     t.text "description"
-    t.string "rating"
+    t.integer "rating"
     t.string "photos"
     t.float "latitude"
     t.float "longitude"
@@ -102,5 +97,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_160418) do
   add_foreign_key "bookings", "venues"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "venues"
-  add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "users"
 end

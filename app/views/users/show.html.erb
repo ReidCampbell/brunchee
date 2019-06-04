@@ -31,6 +31,9 @@
             <button class="tablinks" onclick="openCity(event, 'Saved')">Saved Brunches</button>
           </li>
           <li class="list-group-item">
+            <button class="tablinks" onclick="openCity(event, 'Past')">Previous Brunches</button>
+          </li>
+          <li class="list-group-item">
             <%= link_to destroy_user_session_path, method: :delete do %>
               Log out
             <% end %>
@@ -59,10 +62,10 @@
       <div id="Upcoming" class="tabcontent">
           <section class="venues">
             <!-- <div class="container-fluid"> -->
-              <h3>Upcoming venue</h3>
+              <h3>Upcoming Brunches</h3>
               <div class="Cards">
                 <div class="Cards__grid">
-                  <% current_user.bookings.each do |booking| %>
+                  <% @upcoming_venues.each do |booking| %>
                     <div class="grid-item">
                       <p> &nbsp; Party size: <br>  &nbsp; <%= booking.party_size %></p>
                       <p> &nbsp; Date: <br>  &nbsp; <%= DateFormat.change_to(booking.date, "ONLY_DATE_SHORTEST") %>
@@ -75,14 +78,13 @@
                   <% end %>
                 </div>
               </div>
-            <!-- </div> -->
           </section>
       </div>
 
       <div id="Saved" class="tabcontent">
         <section class="venues">
           <!-- <div class="container-fluid"> -->
-          <h3>Saved venue</h3>
+          <h3>Saved Brunches</h3>
             <div class="Cards">
               <div class="Cards__grid">
                 <% current_user.favorites.each do |favorite| %>
@@ -92,7 +94,23 @@
                 <% end %>
               </div>
             </div>
-          <!-- </div> -->
+        </section>
+      </div>
+
+      <div id="Past" class="tabcontent">
+        <section class="venues">
+          <!-- <div class="container-fluid"> -->
+          <h3>Previous Brunches</h3>
+            <div class="Cards">
+              <div class="Cards__grid">
+                <% @past_venues.each do |booking| %>
+                  <div class="grid-item">
+                    <%= render 'shared/card', venue: booking.venue %>
+                    <%= render "reviews/form", booking: booking, review: Review.new %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
         </section>
       </div>
     </div>
