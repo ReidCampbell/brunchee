@@ -13,9 +13,10 @@
 .index_card {
   position: relative;
   display: block;
-  border-radius: 6px;
   overflow: hidden;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 
 
   &:hover,
@@ -194,7 +195,7 @@
 .show-card {
   background-color: white;
   padding: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   width:100%;
 
   & h3 {
