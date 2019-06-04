@@ -5,7 +5,7 @@
       <p class="Banner__leading">Brunch without booze is just a sad, late breakfast.</p>
       <%= form_tag('/venues', method: "get", class: "Banner__form") do %>
         <div class="input-group input-group-lg">
-          <%= text_field_tag(:query, nil, placeholder: "Where do you want to brunch?", class: "Input Banner__input form-control") %>
+          <%= text_field_tag(:neighborhood, nil, placeholder: "Where do you want to brunch?", class: "Input Banner__input form-control") %>
           <div class="input-group-btn">
             <%= button_tag :submit, class: "btn btn-primary btn-lg" do %>
               <i class="fa fa-search" aria-hidden="true"></i>

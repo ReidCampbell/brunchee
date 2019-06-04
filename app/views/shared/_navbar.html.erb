@@ -14,7 +14,7 @@
 
       <%= form_tag '/venues', method: "get", class: form_classes do %>
         <div class="input-group">
-          <%= text_field_tag(:query, nil, placeholder: "Where do you want to brunch?", class: "Input--search form-control") %>
+          <%= text_field_tag(:neighborhood, nil, placeholder: "Where do you want to brunch?", class: "Input--search form-control") %>
           <div class="input-group-btn">
             <%= button_tag :submit, class: "btn btn-primary" do %>
               <i class="fa fa-search" aria-hidden="true"></i>
