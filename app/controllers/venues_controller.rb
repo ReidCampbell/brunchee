@@ -64,6 +64,7 @@ class VenuesController < ApplicationController
     @time = params['time']
     @venue = Venue.find(params[:id])
     @bookings = @venue.bookings
+
     # authorize @venue
   end
 
