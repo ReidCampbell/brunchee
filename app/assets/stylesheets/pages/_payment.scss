@@ -1,0 +1,14 @@
+.payment{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 500px;
+  width: 400px;
+  border-radius: 10px;
+  background-image:url('https://image.freepik.com/free-vector/white-paper-background-design_1232-3206.jpg');
+}
+
+
+.payment-min-height {
+  height: calc(100vh - 211.3px)
+}

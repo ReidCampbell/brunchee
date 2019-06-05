@@ -1,16 +1,29 @@
-<h1>Booking Confirmation <%= @booking.venue.name %><h1>
- <%= form_tag payments_path(booking_id: @booking.id) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@booking.value) %></span>
-    </label>
-  </article>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="<%= @booking.venue.name %>"
-    data-email="<%= current_user.email %>"
-    data-description="Venue <%= @booking.venue.id %>"
-    data-amount="<%= @booking.value_cents %>"
-    data-currency="<%= @booking.value.currency %>"></script>
-<% end %>
+<div class="page-container">
+  <div class="container payment-min-height">
+    <div class="row">
+      <div class="payment col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
+        <div>
+          <h1><medium class="text-mute">Booking Confirmation</medium></h1>
+            <%= @booking.venue.name %>
+           <%= form_tag payments_path(booking_id: @booking.id) do %>
+            <article>
+              <label class="amount">
+                <span>Amount: <%= humanized_money_with_symbol(@booking.value) %></span>
+              </label>
+            </article>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-name="<%= @booking.venue.name %>"
+                data-email="<%= current_user.email %>"
+                data-description="Venue <%= @booking.venue.id %>"
+                data-amount="<%= @booking.value_cents %>"
+                data-currency="<%= @booking.value.currency %>"></script>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
