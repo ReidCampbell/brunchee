@@ -9,8 +9,9 @@
   padding: 20px;
   width:100%;
   -webkit-box-shadow: 1px 6px 17px -8px rgba(0,0,0,0.75);
--moz-box-shadow: 1px 6px 17px -8px rgba(0,0,0,0.75);
-box-shadow: 1px 6px 17px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 6px 17px -8px rgba(0,0,0,0.75);
+  box-shadow: 1px 6px 17px -8px rgba(0,0,0,0.75);
+  margin-top: 10px;
 }
 
 .index_card {
@@ -215,6 +216,7 @@ box-shadow: 1px 6px 17px -8px rgba(0,0,0,0.75);
   padding: 20px;
   margin-bottom: 20px;
   width:100%;
+  margin-top: 10px;
 
   & h3 {
     font-size: 16px;
@@ -230,6 +232,12 @@ box-shadow: 1px 6px 17px -8px rgba(0,0,0,0.75);
   }
 }
 
+.show-heart {
+  right: 52px;
+  position: absolute;
+  top: 46px;
+  font-size: 42px;
+}
 
 .profile-card {
   background-color: #fff;

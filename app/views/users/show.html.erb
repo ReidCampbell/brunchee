@@ -21,17 +21,17 @@
 
       <div class="col-md-3"> -->
         <ul class="list-group">
-          <li class="list-group-item">
-            <button class="tablinks active" onclick="openCity(event, 'Edit')" style="text-decoration: none;">Edit Profile</button>
-          </li>
           <li class="list-group-item" id="list-group-item">
-            <button class="tablinks" onclick="openCity(event, 'Upcoming')">Upcoming Brunches</button>
+            <button class="tablinks active" onclick="openCity(event, 'Upcoming')">Upcoming Brunches</button>
           </li>
           <li class="list-group-item" id="list-group-item">
             <button class="tablinks" onclick="openCity(event, 'Saved')">Saved Brunches</button>
           </li>
           <li class="list-group-item" id="list-group-item">
             <button class="tablinks" onclick="openCity(event, 'Past')">Previous Brunches</button>
+          </li>
+          <li class="list-group-item">
+            <button class="tablinks" onclick="openCity(event, 'Edit')" style="text-decoration: none;">Edit Profile</button>
           </li>
           <li class="list-group-item" id="list-group-item">
             <%= link_to destroy_user_session_path, method: :delete do %>
