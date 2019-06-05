@@ -22,18 +22,18 @@
       <div class="col-md-3"> -->
         <ul class="list-group">
           <li class="list-group-item">
-            <button class="tablinks" onclick="openCity(event, 'Edit')">Edit Profile</button>
+            <button class="tablinks active" onclick="openCity(event, 'Edit')" style="text-decoration: none;">Edit Profile</button>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item" id="list-group-item">
             <button class="tablinks" onclick="openCity(event, 'Upcoming')">Upcoming Brunches</button>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item" id="list-group-item">
             <button class="tablinks" onclick="openCity(event, 'Saved')">Saved Brunches</button>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item" id="list-group-item">
             <button class="tablinks" onclick="openCity(event, 'Past')">Previous Brunches</button>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item" id="list-group-item">
             <%= link_to destroy_user_session_path, method: :delete do %>
               Log out
             <% end %>
@@ -67,12 +67,8 @@
                 <div class="Cards__grid">
                   <% @upcoming_venues.each do |booking| %>
                     <div class="grid-item">
-                      <p> &nbsp; Party size: <br>  &nbsp; <%= booking.party_size %></p>
-                      <p> &nbsp; Date: <br>  &nbsp; <%= DateFormat.change_to(booking.date, "ONLY_DATE_SHORTEST") %>
-                        <%= DateFormat.change_to(booking.date, "MEDIUM_TIME") %>
-                      </p>
 
-                      <%= render 'shared/card', venue: booking.venue %>
+                      <%= render 'shared/upcoming_card', venue: booking.venue, booking: booking %>
 
                     </div>
                   <% end %>
@@ -132,7 +128,12 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
+   listgi = document.getElementsByClassName("list-group-item");
+  for (i = 0; i < listgi.length; i++) {
+    listgi[i].className = listgi[i].className.replace(" active", "");
+  }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 </script>
+

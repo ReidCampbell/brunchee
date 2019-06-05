@@ -25,9 +25,9 @@
               <% (1..5).to_a.each do |el| %>
                 <% if  venue.rating.present? %>
                   <% if el <= venue.rating.to_i %>
-                    <i class="fas fa-wine-glass" style="color: #ffb400;"></i>
+                    <i class="fas fa-star" style="color: #ffb400;"></i>
                   <% else %>
-                    <i class="fas fa-wine-glass" style="color: #ccc"></i>
+                    <i class="fas fa-star" style="color: #ccc"></i>
                   <% end %>
                 <%end %>
               <% end %>
