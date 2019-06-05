@@ -3,92 +3,135 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-3">
         <div class="filter_card">
-          <h2 style="color:#303841;">Filters</h2>
-          <hr>
+          <h2 style="color:#303841;margin-left:5%;">Filters</h2>
           <div class="filter-search" style="color:#3A4750;">
             <%= form_tag('/venues', id: "form-filter", method: :get, remote: true) do %>
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-              <h4 class="py-2">Neighborhood</h4>
-              <% Venue.all.sort_by { |venue| venue.neighborhood }.uniq {|venue| venue.neighborhood }.first(3).each do |venue| %>
-                <div class="checkbox">
-                  <input type="checkbox" name="neighborhoods[<%= venue.id %>]" value="<%= venue.neighborhood %>"/>
-                  <label><%= venue.neighborhood %></label>
+            <div class="wrapper center-block">
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      Neighborhood <i class="fas fa-chevron-up"></i>
+                    </a>
+                  </h4>
                 </div>
-              <% end %>
-              <a class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></a>
-              <div id="demo" class="collapse">
-                <% Venue.all.sort_by { |venue| venue.neighborhood }.uniq {|venue| venue.neighborhood }.drop(3).each do  |venue| %>
-                  <div class="checkbox">
-                    <input type="checkbox" name="neighborhoods[<%= venue.id %>]" value="<%= venue.neighborhood %>"/>
-                    <label><%= venue.neighborhood %></label>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <% Venue.all.sort_by { |venue| venue.neighborhood }.uniq {|venue| venue.neighborhood }.each do |venue| %>
+                    <div class="checkbox">
+                      <input type="checkbox" name="neighborhoods[<%= venue.id %>]" value="<%= venue.neighborhood %>"/>
+                      <label><%= venue.neighborhood %></label>
+                    </div>
+                  <% end %>
                   </div>
-                <% end %>
+                </div>
               </div>
-              <hr>
-              <h4 style="padding:10px;">Price range (£)</h4>
-              <div class="range">
-                <input type="range" min="1" max="4" steps="1" value="1">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Cuisine <i class="fas fa-chevron-up"></i>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                    <% Venue.all.sort_by { |venue| venue.cuisine }.uniq {|venue| venue.cuisine }.each do |venue| %>
+                      <div class="checkbox">
+                        <input type="checkbox" value="cuisine"/>
+                        <label><%= venue.cuisine %></label>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-              <ul class="range-labels">
-                <li class="active selected">£</li>
-                <li>££</li>
-                <li>£££</li>
-                <li>££££</li>
-              </ul>
-              <br>
-              <hr>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Cocktail <i class="fas fa-chevron-up"></i>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="panel-body">
 
-              <h4 class="py-2">Rating</h4>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>5 stars</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>4 stars</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>3 stars</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>2 stars</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" value="rating"/>
-                  <label>1 star</label>
-              </div>
-              <hr>
-              <h4 class="py-2">Cuisine</h4>
-              <% Venue.all.sort_by { |venue| venue.cuisine }.uniq {|venue| venue.cuisine }.first(3).each do |venue| %>
-                <div class="checkbox">
-                  <input type="checkbox" value="cuisine"/>
-                  <label><%= venue.cuisine %></label>
-                </div>
-              <% end %>
-              <a class="btn" data-toggle="collapse" data-target="#demo" style="color:#42A6C7;font-size:20px;"><i class="fas fa-plus-square"></i></a>
-              <div id="demo" class="collapse">
-                <% Venue.all.sort_by { |venue| venue.cuisine }.uniq {|venue| venue.cuisine }.drop(3).each do  |venue| %>
-                  <div class="checkbox">
-                    <input type="checkbox" value="cuisine"/>
-                    <label><%= venue.cuisine %></label>
                   </div>
-                <% end %>
-              </div>
-              <hr>
-              <h4 class="py-2">Style</h4>
-              <% @styles = ['Casual dining', 'Café', 'Pubs', 'Bars', 'Fine Dining'] %>
-              <% @styles.each do |style| %>
-                <div class="checkbox">
-                  <input type="checkbox" value="style"/>
-                  <label><%= style %></label>
                 </div>
-              <% end %>
-              <div class="filter-btn">
-              <%= submit_tag("Update", :class=>"btn btn btn-primary") %>
               </div>
-            <% end %>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFour">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Rating<i class="fas fa-chevron-up"></i>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                  <div class="panel-body">
+                    <div class="checkbox">
+                      <input type="checkbox" value="rating"/>
+                      <label>5 stars</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="checkbox" value="rating"/>
+                      <label>4 stars</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="checkbox" value="rating"/>
+                      <label>3 stars</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="checkbox" value="rating"/>
+                      <label>2 stars</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="checkbox" value="rating"/>
+                      <label>1 star</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          Price Range <i class="fas fa-chevron-up"></i>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                      <div class="panel-body">
+                        <div class="checkbox">
+                          <input type="checkbox" value="price"/>
+                          <label>£</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" value="price"/>
+                          <label>££</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" value="price"/>
+                          <label>£££</label>
+                        </div>
+                        <div class="checkbox">
+                          <input type="checkbox" value="price"/>
+                          <label>££££</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+            </div>
+            <div class="filter-btn">
+              <%= submit_tag("Update", :class=>"btn btn btn-primary") %>
+             </div>
+          <!--   <% end %> -->
+
           </div>
         </div>
       </div>
@@ -142,10 +185,6 @@
 
 
 
-
-
-
-
 <script>
    $('.panel-collapse').on('show.bs.collapse', function () {
     $(this).siblings('.panel-heading').addClass('active');
@@ -155,6 +194,9 @@
     $(this).siblings('.panel-heading').removeClass('active');
   });
 </script>
+
+
+
   <!-- </div> -->
 <!-- </div> -->
 <!-- <script>
