@@ -25,3 +25,7 @@ body {
     color: $value;
   }
 }
+
+.min-height {
+  min-height: calc(100vh - 212px);
+}
