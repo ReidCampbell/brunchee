@@ -1,5 +1,5 @@
-<div class="index-container">
-  <div class="containery">
+<!-- <div class="index-container"> -->
+  <!-- <div class="containery"> -->
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-3">
         <div class="filter_card">
@@ -25,7 +25,7 @@
                 <% end %>
               </div>
               <hr>
-              <h4>Price range (£)</h4>
+              <h4 style="padding:10px;">Price range (£)</h4>
               <div class="range">
                 <input type="range" min="1" max="4" steps="1" value="1">
               </div>
@@ -110,35 +110,51 @@
           <%# end %>
         </div>
       </div> -->
-      <div class="col-xs-12 col-sm-6 col-md-5">
+      <div class="col-xs-12 col-sm-6">
         <section class="venues">
           <div id="venue-cards-container" class="container-fluid">
             <h3><%= @venues.count %> Venues</h3>
-            <div class="index_card">
-              <div class="Cards__grid">
-                <% @venues.each do |venue|  %>
-                  <div class="grid-item">
-                    <%= render 'shared/card', venue: venue %>
-                     <!-- Displaying price -->
-                  </div>
-                <% end %>
-              </div>
+            <div class="row">
+              <% @venues.each do |venue|  %>
+                <div class="col-xs-12 col-md-6">
+                  <%= render 'shared/card', venue: venue %>
+                </div>
+              <% end %>
             </div>
           </div>
         </section>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="col-xs-12 col-sm-3" style="position: sticky;
+  top: 60px;">
         <div
           class="index_map"
           id="map"
-          style="width: 100%; height:100vh;"
+          style="width: 100%; height: calc(100vh - 60px);"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+<script>
+   $('.panel-collapse').on('show.bs.collapse', function () {
+    $(this).siblings('.panel-heading').addClass('active');
+  });
+
+  $('.panel-collapse').on('hide.bs.collapse', function () {
+    $(this).siblings('.panel-heading').removeClass('active');
+  });
+</script>
+  <!-- </div> -->
+<!-- </div> -->
 <!-- <script>
   var slider = document.getElementById("myRange");
   var output = document.getElementById("price");

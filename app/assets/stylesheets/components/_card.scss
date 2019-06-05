@@ -1,7 +1,7 @@
 .filter_card {
   background-color: white;
-  padding: 25px;
-  width:90%;
+  padding: 45px;
+  width:100%;
 }
 
 .bookings_card {
@@ -92,6 +92,21 @@ box-shadow: 1px 6px 17px -8px rgba(0,0,0,0.75);
     align-items: center;
     filter: blur(5px);
   }
+}
+
+
+.index_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.index_column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
 }
 
 
