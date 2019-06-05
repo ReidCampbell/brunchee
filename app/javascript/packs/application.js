@@ -2,7 +2,7 @@ import "bootstrap";
 import $ from 'jquery'
 import 'plugins/flatpickr'
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
-
+import swal from 'sweetalert';
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
