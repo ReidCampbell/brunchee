@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     @review.user = current_user
     @review.save
-    redirect_to venues_path(:venue_id)
+    redirect_to venue_path(@booking.venue)
   end
 
   private
