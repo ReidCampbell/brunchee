@@ -97,7 +97,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_112001) do
   add_foreign_key "bookings", "venues"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "venues"
-
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
 end

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :update]
   resources :venues do
     resources :favorite_venues, only: [:create]
-    resources :bookings, only: [:show, :create]
+    resources :bookings, only: [:show, :create, :destroy]
   end
   resources :payments, only: [:new, :create]
   resources :bookings, only: [:index, :show, :destroy] do
