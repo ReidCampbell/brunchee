@@ -5,7 +5,7 @@
         <div class="filter_card">
           <h2 style="color:#303841;margin-left:5%;">Filters</h2>
           <div class="filter-search" style="color:#3A4750;">
-            <%= form_tag('/venues', id: "form-filter", method: :get, remote: true) do %>
+            <%= form_tag('/venues', id: "form-filter", method: :get) do %>
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
             <div class="wrapper center-block">
               <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -169,7 +169,7 @@
           </div>
         </section>
       </div>
-      <div class="col-xs-12 col-sm-3" style="position: sticky;
+      <div class="col-xs-12 col-sm-3" id="map-container" style="position: sticky;
   top: 60px;">
         <div
           class="index_map"

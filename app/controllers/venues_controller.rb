@@ -41,10 +41,6 @@ class VenuesController < ApplicationController
       }
     end
 
-    respond_to do |format|
-      format.js
-      format.html { render 'venues/index' }
-    end
 
       if params["ratings"].present?
       @ratings_hash = params["ratings"]
@@ -53,6 +49,11 @@ class VenuesController < ApplicationController
         new_venues << @venues.where(rating: value)
       end
       @venues = new_venues
+    end
+
+    respond_to do |format|
+      format.js
+      format.html { render 'venues/index' }
     end
 
   end

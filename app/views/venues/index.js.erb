@@ -16,9 +16,9 @@ function changeVenues() {
   `;
 }
 changeVenues();
-
+console.log("<%= @markers.count %>");
 function changeMap() {
-  var containerMap = document.getElementsByClassName("mapboxgl-canvas");
+  var containerMap = document.getElementById("map-container");
   containerMap.innerHTML = `
   <div
     class="index_map"
@@ -29,4 +29,7 @@ function changeMap() {
   </div>
   `;
 }
+
 changeMap();
+// var body = document.querySelector("body");
+// body.insertAdjacentHTML("beforeend", `<%= javascript_pack_tag 'reset_map.js' %>`);
