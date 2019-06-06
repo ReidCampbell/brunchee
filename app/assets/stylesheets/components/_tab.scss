@@ -15,6 +15,12 @@
   font-size:16px;
   text-decoration:none;
   outline:none;
+  display: block;
+  cursor: pointer;
+}
+
+.tablinks.active {
+  font-weight: bold;
 }
 
 .list-group-item button:hover {
@@ -28,6 +34,7 @@
   font-size:16px;
   text-decoration:underline;
   outline:none;
+  cursor: pointer;
 }
 
 /* Style the tab content */
@@ -36,6 +43,7 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   background-color: white;
+  margin-bottom: 50px;
 }
 .tabcontent {
   animation: fadeEffect 1s; /* Fading effect takes 1 second */

@@ -1,4 +1,4 @@
-`<div class="container"style="margin-top:80px;">
+<div class="container"style="margin-top:80px;">
 
   <div class="row">
 <!--     <div class="d-flex flex-column">
@@ -7,30 +7,34 @@
         <div class="profile-card align-items-stretch">
           <div class="image-user">
             <img src="<%= current_user.photo %>" alt="profile image" style="width:100%;height:150px; object-fit: cover;">
-            <div class="text-left mt-4 mx-4">
+            <div class="text-left mt-4 mx-4"style>
               <h3><%= @user.first_name %></h3>
-              <h3><%= @user.last_name %></h3>
+              <h3><%= @user.last_name %>
+                <i class="far fa-edit" onclick="openCity(event, 'Edit')" style="font-weight: bold;cursor:pointer;font-size:25px;margin-left: 10px;"></i>
+              </h3>
             </div>
           </div>
-          <hr>
-          <div class="column">
-            <p><%= @user.email %></p>
-          </div>
+
+            <p style="margin-left: 8px;padding-top:5px;"><%= @user.email %></p>
+
         </div>
       <!-- </div>
 
       <div class="col-md-3"> -->
         <ul class="list-group">
-          <li class="list-group-item">
-            <button class="tablinks" onclick="openCity(event, 'Edit')">Edit Profile</button>
+          <li class="list-group-item" id="list-group-item">
+            <button class="tablinks active" onclick="openCity(event, 'Upcoming')">Upcoming Brunches</button>
           </li>
-          <li class="list-group-item">
-            <button class="tablinks" onclick="openCity(event, 'Upcoming')">Upcoming Brunches</button>
-          </li>
-          <li class="list-group-item">
+          <li class="list-group-item" id="list-group-item">
             <button class="tablinks" onclick="openCity(event, 'Saved')">Saved Brunches</button>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item" id="list-group-item">
+            <button class="tablinks" onclick="openCity(event, 'Past')">Previous Brunches</button>
+          </li>
+         <!--  <li class="list-group-item">
+            <button class="tablinks" onclick="openCity(event, 'Edit')" style="text-decoration: none;">Edit Profile</button>
+          </li> -->
+          <li class="list-group-item" id="list-group-item">
             <%= link_to destroy_user_session_path, method: :delete do %>
               Log out
             <% end %>
@@ -38,7 +42,6 @@
         </ul>
       </div>
     <!-- </div> -->
-
 
     <div class="col-xs-12 col-sm-6 col-md-9">
       <div id="Edit" class="tabcontent">
@@ -59,30 +62,25 @@
       <div id="Upcoming" class="tabcontent active" style="display: block">
           <section class="venues">
             <!-- <div class="container-fluid"> -->
-              <h3>Upcoming venue</h3>
+              <h3>Upcoming Brunches</h3>
               <div class="Cards">
                 <div class="Cards__grid">
-                  <% current_user.bookings.each do |booking| %>
+                  <% @upcoming_venues.each do |booking| %>
                     <div class="grid-item">
-                      <p> &nbsp; Party size: <br>  &nbsp; <%= booking.party_size %></p>
-                      <p> &nbsp; Date: <br>  &nbsp; <%= DateFormat.change_to(booking.date, "ONLY_DATE_SHORTEST") %>
-                        <%= DateFormat.change_to(booking.date, "MEDIUM_TIME") %>
-                      </p>
 
-                      <%= render 'shared/card', venue: booking.venue %>
+                      <%= render 'shared/upcoming_card', venue: booking.venue, booking: booking %>
 
                     </div>
                   <% end %>
                 </div>
               </div>
-            <!-- </div> -->
           </section>
       </div>
 
       <div id="Saved" class="tabcontent">
         <section class="venues">
           <!-- <div class="container-fluid"> -->
-          <h3>Saved venue</h3>
+          <h3>Saved Brunches</h3>
             <div class="Cards">
               <div class="Cards__grid">
                 <% current_user.favorites.each do |favorite| %>
@@ -92,7 +90,23 @@
                 <% end %>
               </div>
             </div>
-          <!-- </div> -->
+        </section>
+      </div>
+
+      <div id="Past" class="tabcontent">
+        <section class="venues">
+          <!-- <div class="container-fluid"> -->
+          <h3>Previous Brunches</h3>
+            <div class="Cards">
+              <div class="Cards__grid">
+                <% @past_venues.each do |booking| %>
+                  <div class="grid-item">
+                    <%= render 'shared/card', venue: booking.venue %>
+                    <%= render "reviews/form", booking: booking, review: Review.new %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
         </section>
       </div>
     </div>
@@ -114,7 +128,12 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
+   listgi = document.getElementsByClassName("list-group-item");
+  for (i = 0; i < listgi.length; i++) {
+    listgi[i].className = listgi[i].className.replace(" active", "");
+  }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 </script>
+

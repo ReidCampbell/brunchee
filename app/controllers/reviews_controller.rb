@@ -8,8 +8,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.booking = @booking
+    @review.user = current_user
     @review.save
-    redirect_to bookings_path
+    redirect_to venue_path(@booking.venue)
   end
 
   private

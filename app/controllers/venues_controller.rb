@@ -3,19 +3,44 @@ class VenuesController < ApplicationController
 
   def index
     # @venues = policy_scope(Venue)
-
     if params[:neighborhood].present?
       @venues = Venue.where("neighborhood ILIKE '%#{params[:neighborhood]}%'")
     else
       @venues = Venue.all
     end
-    @venues = @venues.where.not(latitude: nil, longitude: nil)
+
+    # from form on index page
+    if params["neighborhoods"].present?
+      @neighborhoods_hash = params["neighborhoods"]
+      new_venues = []
+      @neighborhoods_hash.each do |key, value|
+        new_venues << @venues.where(neighborhood: value)
+      end
+      @venues = new_venues
+    end
+
+    if @venues.class == Array
+      new_venues = []
+      @venues.each do |arr_venues|
+        arr_venues.each do |venue|
+          new_venues << venue if venue.latitude != nil && venue.longitude != nil
+        end
+      end
+      @venues = new_venues
+    else
+      @venues = @venues.where.not(latitude: nil, longitude: nil)
+    end
 
     @markers = @venues.map do |venue|
       {
         lat: venue.latitude,
         lng: venue.longitude
       }
+    end
+
+    respond_to do |format|
+      format.js
+      format.html { render 'venues/index' }
     end
   end
 
@@ -39,6 +64,7 @@ class VenuesController < ApplicationController
     @time = params['time']
     @venue = Venue.find(params[:id])
     @bookings = @venue.bookings
+
     # authorize @venue
   end
 

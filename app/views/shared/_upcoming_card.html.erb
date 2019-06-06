@@ -1,0 +1,55 @@
+<%= link_to venue_path(venue) do %>
+  <div class="Card__inner">
+    <figure class="Card__img">
+      <% if venue.photos.present? %>
+        <img
+          src='<%= "#{venue.photos}" %>'
+          data-src='<%= "#{venue.photos}" %>'
+          alt='<%= "#{venue.name}" %>'
+          class="lazyload"
+          />
+      <% end %>
+    </figure>
+    <div class="Card__body">
+      <h3 class="Card__title"><%= venue.name %></h3>
+
+      <div class="Card__neighborhood">
+        <i class="fas fa-users" style="color: #ccc"></i>
+        &nbsp; <%= booking.party_size %>
+      </div>
+
+      <div class="Card__price">
+        <%= DateFormat.change_to(booking.date, "ONLY_DATE_SHORTEST") %>
+        <%= DateFormat.change_to(booking.date, "MEDIUM_TIME") %>
+      </div>
+      <!-- <div class="Card__meta">
+        <div class="Card__rating">
+            <div class="d-flex">
+              <%# (1..5).to_a.each do |el| %>
+                <%# if  venue.rating.present? %>
+                  <%# if el <= venue.rating.to_i %>
+                    <i class="fas fa-star" style="color: #ffb400;"></i>
+                  <%# else %>
+                    <i class="fas fa-star" style="color: #ccc"></i>
+                  <%# end %>
+                <%#end %>
+              <%# end %>
+            </div>
+          </span>
+        </div>
+        <%# if user_signed_in? %>
+          <%#- unless current_user.favorite_venues.include?(venue)  -%>
+            <%#= link_to(venue_favorite_venues_path(venue), method: :post) do %>
+              <i class="fas fa-heart color-grey-text"></i>
+            <%# end %>
+          <%#- else -%>
+            <%#= link_to(favorite_venue_path(Favorite.where(user: current_user, venue: venue).first), method: :delete) do %>
+            <i class="fas fa-heart color-blue-text"></i>
+            <%# end %>
+          <%#- end -%>
+        <%# end %>
+      </div> -->
+      <%= link_to "Cancel Booking", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, :style=> 'margin-top:12px;', class:"btn btn-primary btn-sm" %>
+    </div>
+  </div>
+<% end %>
