@@ -1,3 +1,5 @@
+console.log('<%= @markers.to_json %>');
+
 function changeVenues() {
   var container = document.getElementById("venue-cards-container");
   container.innerHTML = `
@@ -7,7 +9,6 @@ function changeVenues() {
       <% @venues.each do |venue|  %>
         <div class="grid-item">
           <%= render 'shared/card', venue: venue %>
-          <!-- Displaying price -->
         </div>
       <% end %>
     </div>
@@ -15,3 +16,17 @@ function changeVenues() {
   `;
 }
 changeVenues();
+
+function changeMap() {
+  var containerMap = document.getElementsByClassName("mapboxgl-canvas");
+  containerMap.innerHTML = `
+  <div
+    class="index_map"
+    id="map"
+    style="width: 100%; height: calc(100vh - 60px);"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  `;
+}
+changeMap();
