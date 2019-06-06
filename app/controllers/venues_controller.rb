@@ -5,6 +5,7 @@ class VenuesController < ApplicationController
     # @venues = policy_scope(Venue)
     if params[:neighborhood].present?
       @venues = Venue.where("neighborhood ILIKE '%#{params[:neighborhood]}%'")
+    # raise
     else
       @venues = Venue.all
     end
@@ -18,6 +19,7 @@ class VenuesController < ApplicationController
       end
       @venues = new_venues
     end
+    # raise
 
     if @venues.class == Array
       new_venues = []
@@ -64,7 +66,10 @@ class VenuesController < ApplicationController
     @time = params['time']
     @venue = Venue.find(params[:id])
     @bookings = @venue.bookings
-
+    @markers = [{
+      lat: @venue.latitude,
+      lng: @venue.longitude
+    }]
     # authorize @venue
   end
 
