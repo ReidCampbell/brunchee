@@ -21,7 +21,9 @@ venue1 = Venue.create!(
   hour: "Mon-Fri: 12pm-2pm",
   neighborhood: "Shoreditch",
   website: "www.cevichefamily.com/andina/andina-shoreditch",
-  photos: "https://media.timeout.com/images/101402283/1372/772/image.jpg"
+  photos: "https://media.timeout.com/images/101402283/1372/772/image.jpg",
+  menu: "https://b.zmtcdn.com/data/menus/776/6119776/8b875418ce27534df909d686af0d8d84.jpg"
+
 )
 
 venue2 = Venue.create!(
@@ -182,7 +184,7 @@ venue13 = Venue.create!(
   neighborhood: "Ladbroke Grove",
   website: "http://www.pizzaeast.com/portobello/",
   photos: "https://b.zmtcdn.com/data/res_imagery/6104609_CHAIN_40ff358e5f59e2dc66b3c4bb7964b74c_c.jpg",
-  menu: "https://b.zmtcdn.com/data/menus/609/6104609/6149717005cd09ee05f1232e51b80cc9.jpeg"
+  menu: "https://b.zmtcdn.com/data/menus/609/6104609/e1bce09c44dc5c56d101f8e0bd7a3716.jpeg"
 )
 
 venue14 = Venue.create!(
