@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroying Venues"
+Review.destroy_all
+Booking.destroy_all
+Favorite.destroy_all
 Venue.destroy_all
 venue1 = Venue.create!(
   name: "Andina Shoreditch",
@@ -15,6 +18,7 @@ venue1 = Venue.create!(
   description: "Bored with burgers? Tired of tapas? Then let Andina shimmy up your tastebuds with its Peruvian-inspired ceviches, street food, cocktails, and colourful smoothies.",
   rating: 4,
   price_cents: "35",
+  hour: "Mon-Fri: 12pm-2pm",
   neighborhood: "Shoreditch",
   website: "www.cevichefamily.com/andina/andina-shoreditch",
   photos: "https://media.timeout.com/images/101402283/1372/772/image.jpg",
@@ -62,16 +66,17 @@ venue4 = Venue.create!(
 )
 
 venue5 = Venue.create!(
-  name: "Brickwood Balham",
-  address: "11 Hildreth Street",
-  post_code: "SW12 9RQ",
-  cuisine: "Café",
-  description: "It’s a brave caff that opens up a few doors away from M1lk on Hildreth Street, a local destination that has queues out of the door every weekend.",
+  name: "Bull in a China Shop",
+  address: "196 Shoreditch High Street",
+  post_code: "E1 6JE",
+  cuisine: "Chinese",
+  description: "Lively Asian-influenced eatery and bar serving bao buns, rotisserie chicken and 30+ rare whiskies.",
   rating: 4,
   price_cents: "25",
-  neighborhood: "Balham",
-  website: "www.brickwoodlondon.com",
-  photos: "https://media.timeout.com/images/105172041/1372/772/image.jpg"
+  hour: "Mon-Fri: 12pm-2pm",
+  neighborhood: "Shoreditch",
+  website: "http://www.bullinachinashop.london/info.html",
+  photos: "https://b.zmtcdn.com/data/reviews_photos/0c1/f5be64f9424c3ec976935f9e0e8260c1_1437257541.jpg"
 )
 
 venue6 = Venue.create!(
@@ -88,16 +93,18 @@ venue6 = Venue.create!(
 )
 
 venue7 = Venue.create!(
-  name: "Balthazar",
-  address: "4-6 Russell Street",
-  post_code: "WC2E 7BN",
-  cuisine: "French",
-  description: "Head to Balthazar restaurant for a delicious brunch this weekend. Their extensive brunch menu includes varieties of salads and soups like Mixed Green Salad with Bacon Shallot Vinaigrette and Soft Poached Eggs, Onion Soup Gratinee, Garlic Prawns and Steak Tartare. The Entree menu includes Smoked Haddock, Salad Nicoise, Chicken Paillard, Steak Frites, Spaghetti with Lobster, Duck Confit and more. You can also indulge in all time favourites like Eggs Benedict, Eggs Royale, Eggs Florentine. Try their mouth watering collection of oysters and shellfish like Rock Oyster, Queen Scallops, Dressed Crab and more. Do not forget to gorge on some succulent roasts from their Sunday Roast menu.",
+  name: "Barrio Shoreditch",
+  address: "141-143 Shoreditch High Street",
+  post_code: "E1 6JE",
+  cuisine: "Mexican",
+  description: "Brazilian-inspired cocktail bar and cantina serving tapas-style food, plus late night club with DJs.",
   rating: 4,
-  price_cents: "27",
-  neighborhood: "Covent Garden",
-  website: "https://balthazarlondon.com/",
-  photos: "https://balthazarlondon.com/media/1303/balthazar26293-min.jpg?anchor=center&mode=crop&width=1200&rnd=131988524000000000"
+  price_cents: "25",
+  hour: "Mon-Fri: 12pm-2pm",
+  neighborhood: "Shoreditch",
+  website: "http://www.welovebarrio.com/",
+  photos: "https://b.zmtcdn.com/data/res_imagery/6103874_RESTAURANT_27fb33382b1479c8eb3979d66bf756b3_c.jpg",
+  menu: "https://b.zmtcdn.com/data/menus/874/6103874/963fb03356e203ce463f957fd3f03b0a.jpg"
 )
 
 venue8 = Venue.create!(
@@ -160,6 +167,7 @@ venue12 = Venue.create!(
   description: "There’s no better way to rev up your weekend than unlimited pizza, pornstar martinis and glasses of fizz. Add a crowd of fellow fun-seekers and the best ball pits on the planet, and you really have no excuse not to be telling a great story about what you got up to once Monday morning comes around. In short, if you want fun, we’ve got the fuel…",
   rating: 4,
   price_cents: "20",
+  hour: "Mon-Fri: 12pm-2pm",
   neighborhood: "Shoreditch",
   website: "https://www.ballieballerson.com/",
   photos: "https://www.ballieballerson.com/wp-content/uploads/2018/11/Banner-compressed-4.jpg"
@@ -179,7 +187,7 @@ venue13 = Venue.create!(
   menu: "https://b.zmtcdn.com/data/menus/609/6104609/e1bce09c44dc5c56d101f8e0bd7a3716.jpeg"
 )
 
-venue13 = Venue.create!(
+venue14 = Venue.create!(
   name: "The Piano Works",
   address: "113-117 Farringdon Road",
   post_code: "EC1R 3BX",
@@ -191,4 +199,225 @@ venue13 = Venue.create!(
   website: "https://pianoworks.bar/",
   photos: "https://b.zmtcdn.com/data/res_imagery/17888842_RESTAURANT_7945722ee64158edc11fe7f8ff564cab_c.jpg"
 )
+
+venue15 = Venue.create!(
+  name: "York & Albany",
+  address:"127-129 Parkway",
+  post_code: "NW1 7PS",
+  cuisine: "British",
+  description: "Set inside a boutique hotel, the York & Albany marks Gordon Ramsay's debut as a hotelier",
+  rating:4,
+  price_cents:"40",
+  neighborhood:"Camden Town",
+  website:"https://www.gordonramsayrestaurants.com/york-and-albany/",
+  photos: "https://b.zmtcdn.com/data/pictures/1/6106351/2ac2420d22579e8b5bf69938d33c8ccd.jpg",
+  )
+
+venue16 = Venue.create!(
+  name:"Planet Hollywood",
+  address: "57-60 Haymarket",
+  post_code:"SW1Y 4QX",
+  cuisine:"American",
+  description:"Great if you're looking for a casual dining experience",
+  rating: 3,
+  price_cents:"25",
+  neighborhood: "Haymarket",
+  website:"http://www.planethollywoodlondon.com/",
+  photos: "https://b.zmtcdn.com/data/pictures/4/6104184/dd31df837990ba507765957e92e7a1af.jpg",
+  )
+
+venue17 = Venue.create!(
+  name: "Social Wine & Tapas",
+  address: "39 James Street",
+  post_code: "W1U 1DL",
+  cuisine:"Spanish",
+  description: "Dishes are all tapas sourced from Spain, perfect for sharing",
+  rating: 4,
+  price_cents:"30",
+  neighborhood:"Marylebone",
+  website:"http://www.socialwineandtapas.com/tasting-events/",
+  photos:"https://b.zmtcdn.com/data/pictures/2/17759422/b1dbd8d45fef0cdd27a7a67ef99273df.jpg",
+  )
+
+venue18 = Venue.create!(
+  name:"Babylon at The Roof Gardens",
+  address:"99 Kensington High Street",
+  post_code:"W8 5SA",
+  cuisine:"European",
+  description:"Nowhere in London will you find a place like the Kensington Roof Gardens. Guests can wander about the enormous one and a half acres of themed gardens, past the flowing stream full of fish and scattered wildlife.",
+  rating:4,
+  price_cents:"40",
+  neighborhood:"Kensington",
+  website:"http://www.virginlimitededition.com/the-roof-gardens",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/5/6113865/f3bbef3a679d4356a672c401a754cb66.jpg",
+  )
+
+venue19 = Venue.create!(
+  name:"Baltic",
+  address:"74 Blackfriars Road",
+  post_code:"SE1 8HA",
+  cuisine:"Lithuanian",
+  description:"Our food is staggering with a Eastern European take on meat, fish and drinks.",
+  rating:"5",
+  price_cents:"25",
+  neighborhood:"Waterloo",
+  website:"http://www.balticrestaurant.co.uk/contact-us/",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/6/6113876/ea12f59cec792b09b546cf8a2e375323.jpg",
+  )
+
+venue20 = Venue.create!(
+  name:"Las Iguanas",
+  address:"1 Horner Square",
+  post_code:"E1 6AA",
+  cuisine:"Latin American",
+  description:"Las Iguanas does great food and a good happy hour. The restaurant is normally buzzing with people and has a friendly atmosphere.",
+  rating:4,
+  price_cents:"20",
+  neighborhood:"Spitafield",
+  website:"http://www.iguanas.co.uk/restaurants/london-spitalfields",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/6/6102366/4c09941cb83dd9f862d95b8d04fd566e.jpg",
+  )
+
+venue21 = Venue.create!(
+  name:"Mango Room",
+  address:"10-12 Kentish Town Road",
+  post_code:"NW1 8NH",
+  cuisine:"Caribbean",
+  description:"Authentic Caribbean food",
+  rating:5,
+  price_cents:"30",
+  neighborhood:"Camden Town",
+  website:'http://www.mangoroom.co.uk/',
+  photos:"https://b.zmtcdn.com/data/pictures/chains/3/6106033/01dff99e9b6fdca03069b9866bf66aaf.jpg",
+  )
+
+venue22 = Venue.create!(
+  name:"Shakespeare's Head",
+  address:"64-68 Kingsway",
+  post_code:"WC2B 6BG",
+  cuisine:"British",
+  description:"This is a really good option for a cheap night out in London. ",
+  rating:4,
+  price_cents:"20",
+  neighborhood:"Holborn",
+  website:"http://www.jdwetherspoon.co.uk/home/pubs/shakespeares-head",
+  photos:"https://b.zmtcdn.com/data/reviews_photos/8bb/86857759cd4624c18486d29d1339e8bb_1514368216.jpg",
+  )
+
+venue23 = Venue.create!(
+  name:"Hoxton Grill",
+  address:"81 Great Eastern Street",
+  post_code:"EC2A 3HU",
+  cuisine:"American",
+  description:"Brilliant comfort food",
+  rating:4,
+  price_cents:"20",
+  neighborhood:"Shoreditch",
+  website:"http://www.hoxtongrill.com/",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/9/6113979/0cffa80863da8f4788b0b782911d2403.jpg",
+  )
+
+venue24 = Venue.create!(
+  name:"Ev Restaurant & Bar",
+  address:"Arches 97-99",
+  post_code: "SE1 8DD",
+  cuisine:"Turkish",
+  description:"Excellent Turkish cuisine",
+  rating:4,
+  price_cents:"20",
+  neighborhood:"Southwark",
+  website:"http://www.tasrestaurants.co.uk/our-branchs",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/6/6102996/ba6618fbcbdb4294dd5df68db1c346a5.jpg",
+  )
+
+venue25 = Venue.create!(
+  name:"Cubana",
+  address:"48 Lower Marsh",
+  post_code:"SE1 7RG",
+  cuisine:"Cuban",
+  description:"Slow cooked healthy Cuban dishes and late night Live Cuban music",
+  rating:4,
+  price_cents:"25",
+  neighborhood:"Waterloo",
+  website:"http://cubana.co.uk/",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/8/6106188/4543e9bfd28b9f5b9e481e9b1022ad27.jpg",
+  )
+
+venue26 = Venue.create!(
+  name:"Luna Rossa",
+  address:"190-192 Kensington Park Road",
+  post_code:"W11 2ES",
+  cuisine:"Italian",
+  description:"A cosy restaurant perfect for family dining.",
+  rating:4,
+  price_cents:"25",
+  neighborhood:"Notting Hill",
+  website:"http://www.madeinitalygroup.co.uk/",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/3/6104363/a9bcafede25a7aabc11877056d245f18.jpg",
+  )
+
+venue27 = Venue.create!(
+  name:"E&O",
+  address:"14 Blenheim Crescent",
+  post_code:"W11 1NN",
+  cuisine:"Japanese",
+  description:"Amazing Japanese food, beautiful restaurant in a lovely area.",
+  rating:4,
+  price_cents:"35",
+  neighborhood:"Notting Hill",
+  website:"http://www.rickerrestaurants.com/e-and-o/menu/",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/3/6114123/7185e098d671e48a1255f1bc0dc7475e.jpg",
+  )
+
+venue28 = Venue.create!(
+  name:"Blueberry",
+  address:"2-4 Paul Street",
+  post_code:"EC2A 4JH",
+  cuisine:"European",
+  description:"Artistic, vintage, good music, ping pong, cocktails",
+  rating:3,
+  price_cents:"25",
+  neighborhood:"Shoreditch",
+  website:"http://www.blueberrybar.co.uk/",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/4/6109424/d1376fcc1288641279c42e16475bc4bb.jpg",
+  )
+
+venue29 = Venue.create!(
+  name:"Cottons Rhum Shack",
+  address:"Unit 48-49, Boxpark",
+  post_code:"E1 6GY",
+  cuisine:"Caribbean",
+  description:"E1 6GY",
+  rating:"At Cottons Rhum Shack we boasts 25 years in the making and over 250 rums. ",
+  price_cents:20,
+  neighborhood:"Shoreditch",
+  website:"http://rhumshack.co.uk/",
+  photos:"https://b.zmtcdn.com/data/pictures/chains/4/6105204/0808fb78747f690cf0a0912bf5b3a7b4.jpg",
+  )
+
+venue30 = Venue.create!(
+  name:"Rök",
+  address:"26 Curtain Road",
+  post_code:"EC2A 3NY",
+  cuisine:"Scandanavian",
+  description:"Rök means “smoke” in Swedish and the food on the menu consists of British ingredients that have had traditional Swedish techniques like brining, pickling and smoking applied to them",
+  rating:5,
+  price_cents:"25",
+  neighborhood:"Shoreditch",
+  website:"http://www.roklondon.com/",
+  photos:"https://b.zmtcdn.com/data/reviews_photos/784/2b23d7925bdd5edc156b58cb7ffb4784_1497536387.jpg",
+  )
+
+venue31 = Venue.create!(
+  name:"Sushi Surprise",
+  address:"52 Scrutton Street",
+  post_code:"EC2A 4PH",
+  cuisine:"Japanese",
+  description:"A nice selection of Japanese salmon, tuna and soft shell crab maki.",
+  rating:4,
+  price_cents:"30",
+  neighborhood:"Shoreditch",
+  website:"http://www.sushisurprise.co.uk/",
+  photos:"https://b.zmtcdn.com/data/pictures/4/17850314/80d2b759bc99ac5408ab7a83b67df5ef.jpg",
+  )
 

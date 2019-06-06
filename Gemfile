@@ -22,7 +22,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
 gem "algoliasearch-rails"
 gem 'meta-tags'
-gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'cloudinary', '~> 1.9.1'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'stripe'

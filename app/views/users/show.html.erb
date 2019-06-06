@@ -10,7 +10,7 @@
             <div class="text-left mt-4 mx-4"style>
               <h3><%= @user.first_name %></h3>
               <h3><%= @user.last_name %>
-                <i class="far fa-edit" onclick="openCity(event, 'Edit')" style="font-weight: bold;cursor:pointer;font-size:25px;margin-left: 10px;"></i>
+                <i class="far fa-edit" onclick="openCity(event, 'Edit')" style="cursor:pointer;font-size:20px;margin-left: 10px;"></i>
               </h3>
             </div>
           </div>
@@ -62,7 +62,7 @@
       <div id="Upcoming" class="tabcontent active" style="display: block">
           <section class="venues">
             <!-- <div class="container-fluid"> -->
-              <h3>Upcoming Brunches</h3>
+              <h3 style="margin-top:-26px;margin-bottom:20px;">Upcoming Brunches</h3>
               <div class="Cards">
                 <div class="Cards__grid">
                   <% @upcoming_venues.each do |booking| %>
@@ -80,7 +80,7 @@
       <div id="Saved" class="tabcontent">
         <section class="venues">
           <!-- <div class="container-fluid"> -->
-          <h3>Saved Brunches</h3>
+          <h3 style="margin-top:-26px;margin-bottom:5px;">Saved Brunches</h3>
             <div class="Cards">
               <div class="Cards__grid">
                 <% current_user.favorites.each do |favorite| %>
@@ -96,7 +96,7 @@
       <div id="Past" class="tabcontent">
         <section class="venues">
           <!-- <div class="container-fluid"> -->
-          <h3>Previous Brunches</h3>
+          <h3 style="margin-top:-26px;margin-bottom:5px;">Previous Brunches</h3>
             <div class="Cards">
               <div class="Cards__grid">
                 <% @past_venues.each do |booking| %>
