@@ -132,7 +132,7 @@ venue10 = Venue.create!(
   description: "On weekends you are meant to kickback, relax and just have a good time. Start your weekend at Lantana with their delicious brunch this weekend to make it better than ever. Choose from mouth watering toasts to various egg preparations. Gorge on all time favourite bacons, salmon and beef. They are treating you with all this and much more this weekend. Give Lantana a visit and be assured to have a lovely time munching on delicious food specially prepared for you.",
   rating: 4,
   price_cents: "15",
-  neighborhood: "fitzrovia",
+  neighborhood: "Fitzrovia",
   website: "https://lantanacafe.co.uk/",
   photos: "https://b.zmtcdn.com/data/res_imagery/6103435_RESTAURANT_d41a64c583ad650789d48bdb3affddd3.jpg"
 )

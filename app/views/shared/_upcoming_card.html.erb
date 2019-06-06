@@ -49,7 +49,7 @@
           <%#- end -%>
         <%# end %>
       </div> -->
-      <%= link_to "Cancel Booking", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary btn-sm" %>
+      <%= link_to "Cancel Booking", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, :style=> 'margin-top:12px;', class:"btn btn-primary btn-sm" %>
     </div>
   </div>
 <% end %>
