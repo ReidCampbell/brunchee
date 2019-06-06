@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroying Venues"
+Review.destroy_all
+Booking.destroy_all
+Favorite.destroy_all
 Venue.destroy_all
 venue1 = Venue.create!(
   name: "Andina Shoreditch",
