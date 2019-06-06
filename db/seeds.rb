@@ -198,19 +198,6 @@ venue14 = Venue.create!(
   photos: "https://b.zmtcdn.com/data/res_imagery/17888842_RESTAURANT_7945722ee64158edc11fe7f8ff564cab_c.jpg"
 )
 
-venue15 = Venue.create!(
-  name: "York & Albany",
-  address:"127-129 Parkway",
-  post_code: "NW1 7PS",
-  cuisine: "British",
-  description: "Set inside a boutique hotel, the York & Albany marks Gordon Ramsay's debut as a hotelier",
-  rating:4,
-  price_cents:"40",
-  neighborhood:"Camden Town",
-  website:"https://www.gordonramsayrestaurants.com/york-and-albany/",
-  photos: "https://b.zmtcdn.com/data/pictures/1/6106351/2ac2420d22579e8b5bf69938d33c8ccd.jpg",
-  )
-
 venue16 = Venue.create!(
   name:"Planet Hollywood",
   address: "57-60 Haymarket",
@@ -222,19 +209,6 @@ venue16 = Venue.create!(
   neighborhood: "Haymarket",
   website:"http://www.planethollywoodlondon.com/",
   photos: "https://b.zmtcdn.com/data/pictures/4/6104184/dd31df837990ba507765957e92e7a1af.jpg",
-  )
-
-venue17 = Venue.create!(
-  name: "Social Wine & Tapas",
-  address: "39 James Street",
-  post_code: "W1U 1DL",
-  cuisine:"Spanish",
-  description: "Dishes are all tapas sourced from Spain, perfect for sharing",
-  rating: 4,
-  price_cents:"30",
-  neighborhood:"Marylebone",
-  website:"http://www.socialwineandtapas.com/tasting-events/",
-  photos:"https://b.zmtcdn.com/data/pictures/2/17759422/b1dbd8d45fef0cdd27a7a67ef99273df.jpg",
   )
 
 venue18 = Venue.create!(
@@ -315,19 +289,6 @@ venue23 = Venue.create!(
   photos:"https://b.zmtcdn.com/data/pictures/chains/9/6113979/0cffa80863da8f4788b0b782911d2403.jpg",
   )
 
-venue24 = Venue.create!(
-  name:"Ev Restaurant & Bar",
-  address:"Arches 97-99",
-  post_code: "SE1 8DD",
-  cuisine:"Turkish",
-  description:"Excellent Turkish cuisine",
-  rating:4,
-  price_cents:"20",
-  neighborhood:"Southwark",
-  website:"http://www.tasrestaurants.co.uk/our-branchs",
-  photos:"https://b.zmtcdn.com/data/pictures/chains/6/6102996/ba6618fbcbdb4294dd5df68db1c346a5.jpg",
-  )
-
 venue25 = Venue.create!(
   name:"Cubana",
   address:"48 Lower Marsh",
@@ -341,19 +302,6 @@ venue25 = Venue.create!(
   photos:"https://b.zmtcdn.com/data/pictures/chains/8/6106188/4543e9bfd28b9f5b9e481e9b1022ad27.jpg",
   )
 
-venue26 = Venue.create!(
-  name:"Luna Rossa",
-  address:"190-192 Kensington Park Road",
-  post_code:"W11 2ES",
-  cuisine:"Italian",
-  description:"A cosy restaurant perfect for family dining.",
-  rating:4,
-  price_cents:"25",
-  neighborhood:"Notting Hill",
-  website:"http://www.madeinitalygroup.co.uk/",
-  photos:"https://b.zmtcdn.com/data/pictures/chains/3/6104363/a9bcafede25a7aabc11877056d245f18.jpg",
-  )
-
 venue27 = Venue.create!(
   name:"E&O",
   address:"14 Blenheim Crescent",
@@ -365,19 +313,6 @@ venue27 = Venue.create!(
   neighborhood:"Notting Hill",
   website:"http://www.rickerrestaurants.com/e-and-o/menu/",
   photos:"https://b.zmtcdn.com/data/pictures/chains/3/6114123/7185e098d671e48a1255f1bc0dc7475e.jpg",
-  )
-
-venue28 = Venue.create!(
-  name:"Blueberry",
-  address:"2-4 Paul Street",
-  post_code:"EC2A 4JH",
-  cuisine:"European",
-  description:"Artistic, vintage, good music, ping pong, cocktails",
-  rating:3,
-  price_cents:"25",
-  neighborhood:"Shoreditch",
-  website:"http://www.blueberrybar.co.uk/",
-  photos:"https://b.zmtcdn.com/data/pictures/chains/4/6109424/d1376fcc1288641279c42e16475bc4bb.jpg",
   )
 
 venue29 = Venue.create!(
