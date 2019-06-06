@@ -25,9 +25,9 @@
               <% (1..5).to_a.each do |el| %>
                 <% if  venue.rating.present? %>
                   <% if el <= venue.rating.to_i %>
-                    <i class="fas fa-star" style="color: #ffb400;"></i>
+                    <i class="fas fa-star" style="color: #ffb400; font-size: 15px;"></i>
                   <% else %>
-                    <i class="fas fa-star" style="color: #ccc"></i>
+                    <i class="fas fa-star" style="color: #ccc; font-size: 15px;"></i>
                   <% end %>
                 <%end %>
               <% end %>
@@ -37,11 +37,11 @@
         <% if user_signed_in? %>
           <%- unless current_user.favorite_venues.include?(venue)  -%>
             <%= link_to(venue_favorite_venues_path(venue), method: :post) do %>
-              <i class="fas fa-heart color-grey-text"></i>
+              <i class="fas fa-heart color-grey-text" style="font-size: 25px;"></i>
             <% end %>
           <%- else -%>
             <%= link_to(favorite_venue_path(Favorite.where(user: current_user, venue: venue).first), method: :delete) do %>
-            <i class="fas fa-heart color-blue-text"></i>
+            <i class="fas fa-heart color-blue-text" style="font-size: 25px;"></i>
             <% end %>
           <%- end -%>
         <% end %>
