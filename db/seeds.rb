@@ -15,6 +15,7 @@ venue1 = Venue.create!(
   description: "Bored with burgers? Tired of tapas? Then let Andina shimmy up your tastebuds with its Peruvian-inspired ceviches, street food, cocktails, and colourful smoothies.",
   rating: 4,
   price_cents: "35",
+  hour: "Mon-Fri: 12pm-2pm",
   neighborhood: "Shoreditch",
   website: "www.cevichefamily.com/andina/andina-shoreditch",
   photos: "https://media.timeout.com/images/101402283/1372/772/image.jpg"
@@ -60,16 +61,17 @@ venue4 = Venue.create!(
 )
 
 venue5 = Venue.create!(
-  name: "Brickwood Balham",
-  address: "11 Hildreth Street",
-  post_code: "SW12 9RQ",
-  cuisine: "Café",
-  description: "It’s a brave caff that opens up a few doors away from M1lk on Hildreth Street, a local destination that has queues out of the door every weekend.",
+  name: "Bull in a China Shop",
+  address: "196 Shoreditch High Street",
+  post_code: "E1 6JE",
+  cuisine: "Chinese",
+  description: "Lively Asian-influenced eatery and bar serving bao buns, rotisserie chicken and 30+ rare whiskies.",
   rating: 4,
   price_cents: "25",
-  neighborhood: "Balham",
-  website: "www.brickwoodlondon.com",
-  photos: "https://media.timeout.com/images/105172041/1372/772/image.jpg"
+  hour: "Mon-Fri: 12pm-2pm",
+  neighborhood: "Shoreditch",
+  website: "http://www.bullinachinashop.london/info.html",
+  photos: "https://b.zmtcdn.com/data/reviews_photos/0c1/f5be64f9424c3ec976935f9e0e8260c1_1437257541.jpg"
 )
 
 venue6 = Venue.create!(
@@ -86,16 +88,18 @@ venue6 = Venue.create!(
 )
 
 venue7 = Venue.create!(
-  name: "Balthazar",
-  address: "4-6 Russell Street",
-  post_code: "WC2E 7BN",
-  cuisine: "French",
-  description: "Head to Balthazar restaurant for a delicious brunch this weekend. Their extensive brunch menu includes varieties of salads and soups like Mixed Green Salad with Bacon Shallot Vinaigrette and Soft Poached Eggs, Onion Soup Gratinee, Garlic Prawns and Steak Tartare. The Entree menu includes Smoked Haddock, Salad Nicoise, Chicken Paillard, Steak Frites, Spaghetti with Lobster, Duck Confit and more. You can also indulge in all time favourites like Eggs Benedict, Eggs Royale, Eggs Florentine. Try their mouth watering collection of oysters and shellfish like Rock Oyster, Queen Scallops, Dressed Crab and more. Do not forget to gorge on some succulent roasts from their Sunday Roast menu.",
+  name: "Barrio Shoreditch",
+  address: "141-143 Shoreditch High Street",
+  post_code: "E1 6JE",
+  cuisine: "Mexican",
+  description: "Brazilian-inspired cocktail bar and cantina serving tapas-style food, plus late night club with DJs.",
   rating: 4,
-  price_cents: "27",
-  neighborhood: "Covent Garden",
-  website: "https://balthazarlondon.com/",
-  photos: "https://balthazarlondon.com/media/1303/balthazar26293-min.jpg?anchor=center&mode=crop&width=1200&rnd=131988524000000000"
+  price_cents: "25",
+  hour: "Mon-Fri: 12pm-2pm",
+  neighborhood: "Shoreditch",
+  website: "http://www.welovebarrio.com/",
+  photos: "https://b.zmtcdn.com/data/res_imagery/6103874_RESTAURANT_27fb33382b1479c8eb3979d66bf756b3_c.jpg",
+  menu: "https://b.zmtcdn.com/data/menus/874/6103874/963fb03356e203ce463f957fd3f03b0a.jpg"
 )
 
 venue8 = Venue.create!(
@@ -158,6 +162,7 @@ venue12 = Venue.create!(
   description: "There’s no better way to rev up your weekend than unlimited pizza, pornstar martinis and glasses of fizz. Add a crowd of fellow fun-seekers and the best ball pits on the planet, and you really have no excuse not to be telling a great story about what you got up to once Monday morning comes around. In short, if you want fun, we’ve got the fuel…",
   rating: 4,
   price_cents: "20",
+  hour: "Mon-Fri: 12pm-2pm",
   neighborhood: "Shoreditch",
   website: "https://www.ballieballerson.com/",
   photos: "https://www.ballieballerson.com/wp-content/uploads/2018/11/Banner-compressed-4.jpg"
@@ -173,10 +178,11 @@ venue13 = Venue.create!(
   price_cents: "15",
   neighborhood: "Ladbroke Grove",
   website: "http://www.pizzaeast.com/portobello/",
-  photos: "https://b.zmtcdn.com/data/res_imagery/6104609_CHAIN_40ff358e5f59e2dc66b3c4bb7964b74c_c.jpg"
+  photos: "https://b.zmtcdn.com/data/res_imagery/6104609_CHAIN_40ff358e5f59e2dc66b3c4bb7964b74c_c.jpg",
+  menu: "https://b.zmtcdn.com/data/menus/609/6104609/6149717005cd09ee05f1232e51b80cc9.jpeg"
 )
 
-venue13 = Venue.create!(
+venue14 = Venue.create!(
   name: "The Piano Works",
   address: "113-117 Farringdon Road",
   post_code: "EC1R 3BX",

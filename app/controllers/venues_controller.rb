@@ -10,6 +10,7 @@ class VenuesController < ApplicationController
       @venues = Venue.all
     end
 
+
     # from form on index page
     if params["neighborhoods"].present?
       @neighborhoods_hash = params["neighborhoods"]
@@ -19,7 +20,7 @@ class VenuesController < ApplicationController
       end
       @venues = new_venues
     end
-    # raise
+
 
     if @venues.class == Array
       new_venues = []
@@ -44,6 +45,16 @@ class VenuesController < ApplicationController
       format.js
       format.html { render 'venues/index' }
     end
+
+      if params["ratings"].present?
+      @ratings_hash = params["ratings"]
+      new_venues = []
+      @ratings_hash.each do |key, value|
+        new_venues << @venues.where(rating: value)
+      end
+      @venues = new_venues
+    end
+
   end
 
   def new
