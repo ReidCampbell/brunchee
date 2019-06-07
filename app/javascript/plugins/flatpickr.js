@@ -2,6 +2,7 @@ import flatpickr from "flatpickr"
 import 'flatpickr/dist/flatpickr.min.css'
 
 
+flatpickr.l10ns.default.firstDayOfWeek = 1;
 flatpickr(".datepicker", {
   altInput: true,
   enableTime: true,
@@ -12,4 +13,5 @@ flatpickr(".datepicker", {
             return date.getDay() === 0 || date.getDay() === 6;
         }
   ]
+
 });
