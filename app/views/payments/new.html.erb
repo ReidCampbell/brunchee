@@ -3,12 +3,13 @@
     <div class="row">
       <div class="payment col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
         <div>
+          <i class="far fa-check-circle"></i>
           <h1><medium class="text-mute">Booking Confirmation</medium></h1>
             <%= @booking.venue.name %>
            <%= form_tag payments_path(booking_id: @booking.id) do %>
             <article>
               <label class="amount">
-                <span>Amount: <%= humanized_money_with_symbol(@booking.value) %></span>
+                <span>Amount: <%= humanized_money_with_symbol(@booking.value*100) %></span>
               </label>
             </article>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

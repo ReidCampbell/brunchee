@@ -255,8 +255,9 @@ venue17 = Venue.create!(
 
 venue18 = Venue.create!(
   name:"Las Iguanas",
-  address:"1 Horner Square, Spitalfields",
-  post_code:"E1 6AA",
+
+  address:"16 Commercial St, Spitalfields, London",
+  post_code:"E1 6EW",
   cuisine:"Latin American",
   description:"Las Iguanas does great food and a good happy hour. The restaurant is normally buzzing with people and has a friendly atmosphere.",
   rating:4,
@@ -344,7 +345,7 @@ venue24 = Venue.create!(
   cuisine:"Caribbean",
   description:"E1 6GY",
   rating:"At Cottons Rhum Shack we boasts 25 years in the making and over 250 rums. ",
-  price_cents:20,
+  price_cents:"20",
   hour: "Sat-Sun: 12pm-2pm",
   neighborhood:"Shoreditch",
   website:"http://rhumshack.co.uk/",
