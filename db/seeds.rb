@@ -175,7 +175,7 @@ venue12 = Venue.create!(
   description: "There’s no better way to rev up your weekend than unlimited pizza, pornstar martinis and glasses of fizz. Add a crowd of fellow fun-seekers and the best ball pits on the planet, and you really have no excuse not to be telling a great story about what you got up to once Monday morning comes around. In short, if you want fun, we’ve got the fuel…",
   rating: 4,
   price_cents: "20",
-  menu: "https://cdn1.imggmi.com/uploads/2019/6/7/fe7e13c37c988bccc0f9c762c8ddc4a4-full.png",
+  menu: "https://res.cloudinary.com/dkzdgf49j/image/upload/v1559907588/fe7e13c37c988bccc0f9c762c8ddc4a4-full_1_fe5bbd.png",
   hour: "Sat-Sun: 12pm-3pm",
   neighborhood: "Shoreditch",
   website: "https://www.ballieballerson.com/",
